@@ -1,0 +1,2 @@
+class Stole < ApplicationRecord
+end

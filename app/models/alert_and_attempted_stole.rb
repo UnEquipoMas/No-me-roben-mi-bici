@@ -1,0 +1,2 @@
+class AlertAndAttemptedStole < ApplicationRecord
+end

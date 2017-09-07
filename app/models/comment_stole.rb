@@ -1,0 +1,2 @@
+class CommentStole < ApplicationRecord
+end

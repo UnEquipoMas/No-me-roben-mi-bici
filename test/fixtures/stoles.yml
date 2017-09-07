@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  mode: MyString
+  date: 2017-09-07
+  hour: 2017-09-07 21:14:25
+  description: MyText
+  site: MyString
+  coordinates: MyString
+  brand_bike: MyString
+  type_bicycle: MyString
+
+two:
+  mode: MyString
+  date: 2017-09-07
+  hour: 2017-09-07 21:14:25
+  description: MyText
+  site: MyString
+  coordinates: MyString
+  brand_bike: MyString
+  type_bicycle: MyString
