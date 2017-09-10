@@ -4,11 +4,4 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 end
-class AddFieldsToUsers < ActiveRecord::Migration
-  def change
-    add_column :user, :name, :string
-    add_column :user, :nick, :string
-    add_column :user, :phone, :string
-    add_column :user, :photo, :string
-  end
-end
+
