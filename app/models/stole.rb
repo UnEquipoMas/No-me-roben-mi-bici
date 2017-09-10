@@ -1,2 +1,0 @@
-class Stole < ApplicationRecord
-end

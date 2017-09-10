@@ -1,0 +1,202 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Bungee');
+@import url('https://fonts.googleapis.com/css?family=Gentium+Basic');
+@import url('https://fonts.googleapis.com/css?family=Maven+Pro');
+
+/* universal */
+
+
+
+body {
+  padding-top: 60px;
+}
+
+section {
+  overflow: auto;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.center {
+  text-align: center;
+  
+  h1 {
+  margin-bottom: 10px;
+  }
+}
+
+
+/* typography */
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+}
+
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: #777;
+}
+
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  font-family: bungee;
+  color: #3498db;;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  padding-top: 9px;
+  font-weight: bold;
+  
+  &:hover {
+  color: #3498db;
+  text-decoration: none;
+  }
+
+}
+
+._style_VRmHw {
+    padding-right: 9.3vw !important;
+    padding-left: 9.3vw !important;
+}
+
+.nmrmb {
+    font-family: bungee;
+    color:#3498db;
+    font-size: 44px !important;
+    line-height: 60px !important;
+    letter-spacing: -.03em !important;
+    font-weight: 400 !important;
+    margin: 0 !important;
+    text-align: left;
+}
+
+.txtImpressive {
+    font-family: Gentium Basic;
+    font-size: 44px !important;
+    line-height: 60px !important;
+    letter-spacing: -.03em !important;
+    font-weight: 600 !important;
+    margin: 0 !important;
+    text-align: left;
+    font-weight: bold;
+}
+
+.headerNmrmb{
+  background-color: #f5f5f5;
+}
+
+
+.txtNotImpressive {
+    font-family: Gentium Basic;
+    font-size: 44px !important;
+    line-height: 60px !important;
+    letter-spacing: -.03em !important;
+    font-weight: 200 !important;
+    margin: 0 !important;
+    text-align: left;}
+
+ .info {
+	font-size: 30px;
+  font-family: Maven Pro;
+}
+
+.center{
+  text-align:center;
+}
+
+.par {
+   font-size: 22px;
+    font-family: Maven Pro;
+    line-height: 31px;
+  }
+
+.mt {
+	margin-top: 40px;
+	margin-bottom: 40px;
+}
+
+#headerwrap {
+	background: url('biciback.jpg') no-repeat center top;
+	margin-top: -20px;
+  margin-left: -141px;
+  margin-right: -141px;
+	padding-top:200px;
+	
+	background-position: center center;
+	min-height: 500px;
+
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    
+    h1 {
+    margin-top: 60px;
+    margin-bottom: 15px;
+    color: white;
+    font-size: 45px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+}
+
+
+
+
+/* footer */
+
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #777;
+  
+  a {
+  color: #555;
+  
+    &:hover {
+    color: #222;
+    }
+  }
+  
+   small {
+  float: left;
+  }
+  
+  ul {
+  float: right;
+  list-style: none;
+  
+    li {
+    float: left;
+    margin-left: 15px;
+    }
+  }
+}
+

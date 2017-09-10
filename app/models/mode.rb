@@ -1,2 +1,0 @@
-class Mode < ApplicationRecord
-end

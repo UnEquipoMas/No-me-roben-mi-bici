@@ -1,2 +1,0 @@
-class CommentAlertAndAttemptedStole < ApplicationRecord
-end
