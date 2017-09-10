@@ -7,9 +7,8 @@ end
 class AddFieldsToUsers < ActiveRecord::Migration
   def change
     add_column :user, :name, :string
-    add_column :user, :apellido, :string
     add_column :user, :nick, :string
-    add_column :user, :telefono, :string
+    add_column :user, :phone, :string
     add_column :user, :photo, :string
   end
 end
