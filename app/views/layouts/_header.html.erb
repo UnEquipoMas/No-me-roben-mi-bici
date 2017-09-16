@@ -1,0 +1,20 @@
+<header class="headerNmrmb navbar navbar-fixed-top navbar-inverse">
+  <div class="container">
+    <%= link_to "NMRMB", root_path, id: "logo" %>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Buscar",   root_path %></li>
+        
+        <% if user_signed_in? %>
+        <li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
+        <li style="color: #9d9d9d">Bienvenido <strong><%= current_user.name %></strong>.</li>
+        
+        <% else %>
+        <li><%= link_to "Iniciar sesión", new_user_session_path %></li>
+        <% end %>
+        
+        <li><%= link_to "Contáctanos",   contact_path %></li>
+      </ul>
+    </nav>
+  </div>
+</header>
