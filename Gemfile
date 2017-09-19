@@ -43,6 +43,7 @@ group :development, :test do
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'sqlite3'
+  gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 end
 
 group :development do

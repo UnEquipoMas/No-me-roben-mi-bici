@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :users , :controllers=>{:registrations=> "registrations"}
+  devise_for :users, :controllers => { registrations: 'registrations' }
   
   get 'static_pages/home'
   get  '/help',    to: 'static_pages#help'
@@ -8,7 +8,5 @@ Rails.application.routes.draw do
   get  '/signup',  to: 'users#new'
 
   resources :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  #root 'application#hello'
   root 'static_pages#home'
 end
