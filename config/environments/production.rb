@@ -100,8 +100,6 @@ Rails.application.configure do
       password: "92013105083"
   }
 
-
-
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
   
