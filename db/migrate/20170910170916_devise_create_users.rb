@@ -3,8 +3,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
     #drop_table :users
     if !table_exists?("users")
         create_table :users do |t|
-          ## Database authenticatable
+          #Nombre de usuario
           t.string :name,  null: false, default: ""
+          ## Database authenticatable
           t.string :email,              null: false, default: ""
           t.string :encrypted_password, null: false, default: ""
     
