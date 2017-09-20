@@ -31,19 +31,21 @@ gem 'bootstrap-sass'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
+gem 'geocoder'
+gem 'gmaps4rails'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'annotate', require: false
 
 group :development, :test do
-  gem 'foreman'
+gem 'foreman'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'sqlite3'
-  gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 end
 
 group :development do
