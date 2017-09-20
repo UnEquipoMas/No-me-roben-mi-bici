@@ -12,6 +12,16 @@
 
 ActiveRecord::Schema.define(version: 20170910170916) do
 
+<<<<<<< HEAD
+  create_table "microposts", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+=======
+>>>>>>> Juan_Caicedo
   create_table "users", force: :cascade do |t|
     t.string "name", default: "", null: false
     t.string "email", default: "", null: false
