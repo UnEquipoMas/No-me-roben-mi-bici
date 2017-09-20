@@ -6,5 +6,11 @@
       <first-sync>true</first-sync>
       <user-name>no_me_roben</user-name>
     </data-source>
+    <data-source name="Rails No-me-roben-mi-bici: development" uuid="c979308c-6e73-4bfa-9c08-4f2b8a026aaf">
+      <database-info product="SQLite" version="3.16.1" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native" />
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
+      <auth-required>false</auth-required>
+      <introspection-schemas>*:main</introspection-schemas>
+    </data-source>
   </component>
 </project>
