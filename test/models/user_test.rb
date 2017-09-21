@@ -23,6 +23,10 @@
 #  locked_at              :datetime
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  doc                    :integer
+#  nick                   :string
+#  phone                  :integer
+#  photo                  :string
 #
 
 require 'test_helper'
