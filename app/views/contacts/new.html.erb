@@ -1,0 +1,45 @@
+
+
+<div id="formulario">
+<%= form_for @contact,:html => {:class => 'form-inline'}, url: contact_path do |message_form| %>
+    <fieldset>
+      <div class="field">
+        <%= message_form.text_field :name, placeholder: "Nombre", class:'form-control' %>
+      </div>
+
+      <div class="field">
+        <%= message_form.email_field :email, placeholder: "Correo", class:'form-control'%>
+      </div>
+
+      <div class="field">
+        <%= message_form.text_area :content, placeholder: "Mensaje", class:'form-control'%>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <div class="field">
+        <%= message_form.submit "Enviar", class:'btn btn-primary' %>
+        <%= button_tag "Limpiar", type: :reset,class:'btn btn-primary'%>
+      </div>
+    </fieldset>
+<% end %>
+</div>
+
+<div style='width: 800px;'>
+  <div id="map" style='width: 800px; height: 400px; margin: -350px 0 0 300px'></div>
+</div>
+<script type="text/javascript">
+    handler = Gmaps.build('Google');
+    handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+        markers = handler.addMarkers([
+            {
+                "lat": 4.6482975,
+                "lng": -74.107807,
+                "infowindow": "Robo 1: Bicicleta GW",
+            }
+        ]);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        handler.getMap().setZoom(12);
+    });
+</script>

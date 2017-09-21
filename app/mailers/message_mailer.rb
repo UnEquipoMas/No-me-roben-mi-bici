@@ -1,12 +1,12 @@
 class MessageMailer < ApplicationMailer
 
-  default from: "Your Mailer <noreply@yourdomain.com>"
-  default to: "Your Name <your.email@yourdomain.com>"
+  default from: "Your Mailer <dahoyosr@gmail.com>"
+  default to: "Your Name <dahoyosr@gmail.com>"
 
   def new_message(message)
-    @message = message
+    @contact = message
 
-    mail subject: "Message from #{message.name}"
+    mail subject: "Contact from #{message.name}"
   end
 
 
