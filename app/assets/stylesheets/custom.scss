@@ -27,6 +27,9 @@ textarea {
   margin-bottom: 10px;
   }
 }
+.head{
+  background-color:#2973B4;
+}
 
 
 /* typography */
@@ -43,12 +46,12 @@ h1 {
 }
 
 h2 {
-  font-size: 1.2em;
+  font-size: 20px;
   letter-spacing: -1px;
   margin-bottom: 30px;
   text-align: center;
-  font-weight: normal;
-  color: #777;
+  font-weight: bold;
+  color: #fff;
 }
 
 p {
@@ -105,7 +108,6 @@ p {
   background-color: #f5f5f5;
 }
 
-
 .txtNotImpressive {
     font-family: Gentium Basic;
     font-size: 44px !important;
@@ -135,6 +137,26 @@ p {
 	margin-bottom: 40px;
 }
 
+.formulario{
+  width : 500px;
+  margin-top: -30px;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.headm{
+  background:#2973B4;
+}
+
+.form1{
+  background:#DCDCDC;
+}
+
+.casillas{
+  width: 440px;
+  margin-left:auto;
+  margin-right: auto;
+}
 #headerwrap {
 	background: url('biciback.jpg') no-repeat center top;
 	margin-top: -20px;
