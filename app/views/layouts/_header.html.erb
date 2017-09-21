@@ -6,6 +6,7 @@
         <li><%= link_to "Buscar",   root_path %></li>
         
         <% if user_signed_in? %>
+        <li><%=link_to "Editar cuenta",edit_user_registration_path%></li>
         <li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
         <li style="color: #9d9d9d">Bienvenido <strong><%= current_user.name %></strong>.</li>
         
