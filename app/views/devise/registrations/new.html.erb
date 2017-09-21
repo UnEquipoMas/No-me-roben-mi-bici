@@ -19,13 +19,13 @@
         <br>
         <div class="row-xs-4">
           <div class="field form-group casillas">
-            <%= f.label :Correo_electronico %>
+            <%= f.label :Correo_electrónico %>
             <%= f.email_field :email, autofocus: true, class: 'form-control'%>
           </div>
         </div>
         <br>
           <div class="field form-group casillas">
-            <%= f.label :Contrasena  %>
+            <%= f.label :Contraseña,'Contraseña'  %>
             <% if @minimum_password_length %>
             <em>(<%= @minimum_password_length %> Caracteres mínimos)</em>
             <% end %>
@@ -33,19 +33,19 @@
           </div>  
           <br>
           <div class="field form-group casillas">
-            <%= f.label :Confirmar_contrasena %>
+            <%= f.label :Confirmar_contraseña %>
             <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
           </div>
           <br>
           <div class="actions center">
-            <%= f.submit "Registrar" , class: 'btn btn-primary' %>
+            <%= f.submit 'Registrar' , class: 'btn btn-primary' %>
           </div>
         <% end %>
       </div>
       </div>
     </div>
     <div class ="panel-footer">
-      <%= render "devise/shared/links" %>
+      <%= render 'devise/shared/links' %>
     </div>
   </div>
 
