@@ -23,6 +23,7 @@ gem 'gmaps4rails'
 # gem 'capistrano-rails', group: :development
 gem 'annotate', require: false
 gem 'mail_form', '~> 1.5', '>= 1.5.1'
+gem 'font-awesome-sass'
 
 group :development, :test do
 gem 'foreman'
