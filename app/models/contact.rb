@@ -4,7 +4,7 @@ class Contact
   include ActiveModel::Conversion
   include ActiveModel::Validations
 
-  attr_accessor :name, :email, :content
+  attr_accessor :name, :email, :content,:phone
 
   validates :name,
             presence: true

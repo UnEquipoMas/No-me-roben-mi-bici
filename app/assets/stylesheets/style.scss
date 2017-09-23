@@ -11,6 +11,27 @@ body.logreg {
     }
 }
 
+.letrablanca{
+  margin-top: 0;
+  color: #fff;
+}
+
+ .map {
+   min-width: 300px;
+   min-height: 300px;
+   width: 100%;
+   height: 100%;
+ }
+
+.legend {
+  color: #36A0FF;
+  height: 70px;
+  font-size: 27px;
+  padding: 5%;
+  border-bottom:0;
+}
+
+
 strong { font-weight: 500; }
 
 a, a:hover, a:focus, a:visited {
