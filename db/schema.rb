@@ -10,7 +10,91 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170921195136) do
+ActiveRecord::Schema.define(version: 20170923234039) do
+
+  create_table "brands", force: :cascade do |t|
+    t.string "description", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "bycicles", force: :cascade do |t|
+    t.string "serial", null: false
+    t.boolean "state", null: false
+    t.string "color", null: false
+    t.string "description", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "type_bycicle_id"
+    t.integer "brand_id"
+    t.integer "user_id"
+    t.index ["brand_id"], name: "index_bycicles_on_brand_id"
+    t.index ["type_bycicle_id"], name: "index_bycicles_on_type_bycicle_id"
+    t.index ["user_id"], name: "index_bycicles_on_user_id"
+  end
+
+  create_table "comments", force: :cascade do |t|
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "report_id"
+    t.integer "user_id"
+    t.index ["report_id"], name: "index_comments_on_report_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "modes", force: :cascade do |t|
+    t.string "description", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "photo_reports", force: :cascade do |t|
+    t.string "photo_address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "report_id"
+    t.index ["report_id"], name: "index_photo_reports_on_report_id"
+  end
+
+  create_table "reports", force: :cascade do |t|
+    t.date "date"
+    t.time "hour"
+    t.text "description"
+    t.boolean "state"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "type_report_id"
+    t.integer "site_id"
+    t.integer "user_id"
+    t.integer "mode_id"
+    t.integer "bycicle_id"
+    t.index ["bycicle_id"], name: "index_reports_on_bycicle_id"
+    t.index ["mode_id"], name: "index_reports_on_mode_id"
+    t.index ["site_id"], name: "index_reports_on_site_id"
+    t.index ["type_report_id"], name: "index_reports_on_type_report_id"
+    t.index ["user_id"], name: "index_reports_on_user_id"
+  end
+
+  create_table "sites", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "lat", null: false
+    t.string "lng", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "type_bycicles", force: :cascade do |t|
+    t.string "description", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "type_reports", force: :cascade do |t|
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name", default: "", null: false

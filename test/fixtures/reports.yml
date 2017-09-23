@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2017-09-23
+  hour: 2017-09-23 23:26:27
+  description: MyText
+  state: false
+
+two:
+  date: 2017-09-23
+  hour: 2017-09-23 23:26:27
+  description: MyText
+  state: false
