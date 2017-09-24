@@ -15,7 +15,7 @@
 #
 
 class Bycicle < ApplicationRecord
-    belongs_to: brand
-    belongs_to: user
-    belongs_to: type_bycicle
+    belongs_to :brand
+    belongs_to :user
+    belongs_to :type_bycicle
 end

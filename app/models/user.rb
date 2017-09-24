@@ -36,7 +36,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
          
-  has_many: bycicles
-  has_many: reports
-  has_many: comments
+  has_many :bycicles
+  has_many :reports
+  has_many :comments
 end

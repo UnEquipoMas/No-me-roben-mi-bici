@@ -9,5 +9,5 @@
 #
 
 class Brand < ApplicationRecord
-    has_many: bycicles
+    has_many :bycicles
 end

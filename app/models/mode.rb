@@ -9,5 +9,5 @@
 #
 
 class Mode < ApplicationRecord
-    has_many: reports
+    has_many :reports
 end
