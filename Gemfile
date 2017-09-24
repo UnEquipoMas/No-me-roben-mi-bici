@@ -15,7 +15,8 @@ gem 'turbolinks', '~> 5'# Turbolinks makes navigating your web application faste
 gem 'jbuilder', '~> 2.5'# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'bootstrap-sass'
 # gem 'redis', '~> 3.0' # Use Redis adapter to run Action Cable in production
-gem 'bcrypt', '~> 3.1.7' , platforms: [:ruby, :x64_mingw]
+gem 'bcrypt', '~> 3.1.7', platforms: [:ruby, :x64_mingw]
+
 gem 'devise'
 gem 'geocoder'
 gem 'gmaps4rails'
@@ -24,6 +25,9 @@ gem 'gmaps4rails'
 gem 'annotate', require: false
 gem 'mail_form', '~> 1.5', '>= 1.5.1'
 gem 'font-awesome-sass'
+gem 'omniauth'
+gem 'omniauth-facebook'
+
 
 group :development, :test do
 gem 'foreman'
