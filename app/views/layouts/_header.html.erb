@@ -13,7 +13,7 @@
         <% else %>
         <li><%= link_to "Iniciar sesión", new_user_session_path %></li>
         <% end %>
-        
+           <li class="round-image-50"><%= image_tag current_user.avatar.url(:thumb) %></li>
         <li><%= link_to "Contáctanos",   contact_path %></li>
       </ul>
     </nav>

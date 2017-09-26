@@ -9,6 +9,13 @@
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= devise_error_messages! %>
     
+     <div class="form-group">
+        <%= f.label :avatar, class: 'col-sm-2 control-label'  %>
+        <div class="col-sm-6">
+            <%= f.file_field :avatar %>
+        </div>
+    </div>
+    
 <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name, autofocus: true %>
@@ -31,12 +38,12 @@
       </div>
       <br>
       <div class="field form-group casillas">
-        <%= f.label :Confirmar_contraseña %>
+        <%= f.label :Confirmar_contraseï¿½a %>
         <%= f.password_field :password_confirmation, autocomplete: "off" , class: 'form-control' %>
       </div>
      <br />
       <div class="field form-group casillas">
-        <%= f.label :Contraseña_actual%> <i>(Es necesaria tu contraseÃ±a actual para guardar los cambios)</i><br />
+        <%= f.label :Contraseï¿½a_actual%> <i>(Es necesaria tu contraseÃ±a actual para guardar los cambios)</i><br />
         <%= f.password_field :current_password, autocomplete: "off" , class: 'form-control' %>
       </div>
      <br />
@@ -48,11 +55,12 @@
   </div>
   </div>
 
+
 <h3>Eliminar cuenta</h3>
 
-<p>¿Desea eliminar su cuenta? <%= button_to "Cancelar mi cuenta", registration_path(resource_name), data: { confirm: "¿Estás seguro?" }, method: :delete %></p>
+<p>ï¿½Desea eliminar su cuenta? <%= button_to "Cancelar mi cuenta", registration_path(resource_name), data: { confirm: "ï¿½Estï¿½s seguro?" }, method: :delete %></p>
 
-<%= link_to "Atrás", :back %>
+<%= link_to "Atrï¿½s", :back %>
 
 
   <div class ="panel-footer">
