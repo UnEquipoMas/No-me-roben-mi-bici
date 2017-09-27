@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170923234039) do
+ActiveRecord::Schema.define(version: 20170927062835) do
 
   create_table "brands", force: :cascade do |t|
     t.string "description", null: false
@@ -65,13 +65,11 @@ ActiveRecord::Schema.define(version: 20170923234039) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "type_report_id"
-    t.integer "site_id"
     t.integer "user_id"
     t.integer "mode_id"
     t.integer "bycicle_id"
     t.index ["bycicle_id"], name: "index_reports_on_bycicle_id"
     t.index ["mode_id"], name: "index_reports_on_mode_id"
-    t.index ["site_id"], name: "index_reports_on_site_id"
     t.index ["type_report_id"], name: "index_reports_on_type_report_id"
     t.index ["user_id"], name: "index_reports_on_user_id"
   end
@@ -82,6 +80,7 @@ ActiveRecord::Schema.define(version: 20170923234039) do
     t.string "lng", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "report_id"
   end
 
   create_table "type_bycicles", force: :cascade do |t|

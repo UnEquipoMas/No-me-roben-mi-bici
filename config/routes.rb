@@ -6,8 +6,12 @@ Rails.application.routes.draw do
   get  '/contact', to: 'static_pages#contact'
   get  '/signup',  to: 'users#new'
 
+  get 'reports', to: 'reports#index'
+  get 'reports/new', to: 'reports#new'
+
   resources :microposts
   resources :users
+  resources :reports
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   #root 'application#hello'
   root 'static_pages#home'
