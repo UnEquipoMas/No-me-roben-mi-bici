@@ -10,6 +10,9 @@ gem 'rails-controller-testing'
 gem 'rails', '~> 5.1.4'
 # Use sqlite3 as the database for Active Record
 
+#Gema para formularios bootstrap 
+gem 'bootstrap_form'
+
 #Gema para el mapa
 gem 'gmaps4rails'
 
