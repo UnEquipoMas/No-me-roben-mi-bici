@@ -27,6 +27,8 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
+gem 'jquery-rails'
 # gem 'redis', '~> 3.0' # Use Redis adapter to run Action Cable in production
 gem 'bcrypt', '~> 3.1.7', platforms: [:ruby, :x64_mingw]
 
@@ -41,8 +43,8 @@ gem 'font-awesome-sass'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'paperclip', '~> 4.1'
+gem 'popper_js'
 
-gem 'annotate', '~> 2.7', '>= 2.7.1'
 
 group :development, :test do
 gem 'foreman'
