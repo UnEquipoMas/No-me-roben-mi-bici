@@ -45,7 +45,6 @@ gem 'omniauth-facebook'
 gem 'paperclip', '~> 4.1'
 gem 'popper_js'
 
-gem 'annotate', '~> 2.7', '>= 2.7.1'
 
 group :development, :test do
 gem 'foreman'
