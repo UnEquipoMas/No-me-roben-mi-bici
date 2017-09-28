@@ -15,7 +15,7 @@ en:
       not_found_in_database: "Error, su %{authentication_keys} o contraseña son incorrectos."
       timeout: "Your session expired. Please sign in again to continue."
       unauthenticated: "Necesitas iniciar sesión o registrarte para continuar."
-      unconfirmed: "You have to confirm your email address before continuing."
+      unconfirmed: "Tienes que confirmar tu correo para continuar"
     mailer:
       confirmation_instructions:
         subject: "Confirmation instructions"

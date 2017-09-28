@@ -1,3 +1,4 @@
+Time.zone = "Bogota"
 class ReportsController < ApplicationController
     def index
     end
