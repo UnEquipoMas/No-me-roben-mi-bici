@@ -1,34 +1,41 @@
-<h1>Nuevo reporte</h1>
+<body class="logreg">
+  <div class="form-box">
+            <div class="form-top1">
+              <div class="form-top-left1">
+                <h3>Crear nuevo reporte</h3>
+              </div>
+              </div>
 <div class = "row">
   <div class="col-sm-4">
+  <div class="form-bottom1">
     <%= form_for @report, url: reports_path  do |f| %>
-      <div class = "field">
-        <%= f.label :Tipo_de_reporte %>
-        <%= f.collection_select :type_report_id, TypeReport.order(:id), :id, :description,include_blank: true, :class => 'form-control'%>
+      <div class="form-group">
+       <h4> <%= f.label :Tipo_de_reporte %></h4>
+        <%= f.collection_select :type_report_id, TypeReport.order(:id), :id, :description,include_blank: true, :class => 'form-user form-control'%>
       </div>
       
-      <div class="field">
-        <%= f.label :Fecha %>
+      <div class="form-group">
+        <h4><%= f.label :Fecha %></h4>
         <%= f.date_select :date, selected: Date.today, start_year: Date.today.year, end_year: Date.today.year %>
       </div>
       
-      <div class="field">
-        <%= f.label :Hora %>
-        <%= f.time_select :hour, ampm: true, class: "form-control"%>
+      <div class="form-group">
+        <h4><%= f.label :Hora %></h4>
+        <%= f.time_select :hour, ampm: true, class: "form-user form-control"%>
       </div>
       
-      <div class = "field">
-        <%= f.label :Descripción %>
-        <%= f.text_area :description, cols: "50", rows: "8"%>
+      <div class="form-group">
+       <h4> <%= f.label :Descripción %></h4>
+        <%= f.text_area :description, cols: "50", rows: "8", class:"form-user form-control"%>
       </div>
       
-      <div class = "field">
-        <%= f.label :Modalidad %>
+      <div class="form-group">
+        <h4><%= f.label :Modalidad %></h4>
         <%= f.collection_select :mode_id, Mode.order(:id), :id, :description, include_blank: true %>
       </div>
       
-      <div class = "field">
-        <%= f.label :Bicicleta %>
+      <div class="form-group">
+        <h4><%= f.label :Bicicleta %></h4>
         <%= f.collection_select :bycicle_id, Bycicle.order(:id), :id, :serial, include_blank: true %>
       </div>
       <%= f.fields_for :site do |j| %>
@@ -36,20 +43,21 @@
         <%= j.hidden_field :long %>
         <%= j.hidden_field :name %>
       <% end %>
-      
+       
       
       <div class="actions"><%= f.submit %></div>
     <% end %>
   </div>
-   
+  </div> 
+
    <div class="col-sm-8">
       <div>
-        <div id="map" style='width: 800px; height: 500px;'></div>
+        <div class ="map2" id="map" style='width: 750px; height: 450px;'></div>
       </div>
    </div>
 </div>
 
-
+</body>
 <script type="text/javascript">
   var markers = [];
 
