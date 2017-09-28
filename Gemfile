@@ -15,6 +15,8 @@ gem 'coffee-rails', '~> 4.2'# Use CoffeeScript for .coffee assets and views
 gem 'turbolinks', '~> 5'# Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'jbuilder', '~> 2.5'# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
+gem 'jquery-rails'
 # gem 'redis', '~> 3.0' # Use Redis adapter to run Action Cable in production
 gem 'bcrypt', '~> 3.1.7', platforms: [:ruby, :x64_mingw]
 
@@ -29,6 +31,7 @@ gem 'font-awesome-sass'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'paperclip', '~> 4.1'
+gem 'popper_js'
 
 group :development, :test do
 gem 'foreman'

@@ -9,13 +9,26 @@
         <li><%=link_to "Editar cuenta",edit_user_registration_path%></li>
         <li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
         <li style="color: #9d9d9d">Bienvenido <strong><%= current_user.name %></strong>.</li>
-        
+        <li class="round-image-50"><%= image_tag current_user.avatar.url(:thumb) %></li>
         <% else %>
         <li><%= link_to "Iniciar sesión", new_user_session_path %></li>
         <% end %>
-           <li class="round-image-50"><%= image_tag current_user.avatar.url(:thumb) %></li>
+           
         <li><%= link_to "Contáctanos",   contact_path %></li>
       </ul>
+
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Dropdown button
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+  </div>
+</div>
+      
+
     </nav>
   </div>
 </header>
