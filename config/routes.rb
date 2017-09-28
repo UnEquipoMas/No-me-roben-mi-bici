@@ -9,7 +9,12 @@ Rails.application.routes.draw do
   post '/contact', to: 'contacts#create'
   get '/contact', to: 'contacts#new'
 
+  get 'reports', to: 'reports#index'
+  get 'reports/new', to: 'reports#new'
+
 
   resources :users
+  resources :reports
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'static_pages#home'
 end

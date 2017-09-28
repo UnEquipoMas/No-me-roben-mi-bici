@@ -23,6 +23,10 @@
 #  locked_at              :datetime
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  doc                    :integer
+#  nick                   :string
+#  phone                  :integer
+#  photo                  :string
 #
 
 class User < ApplicationRecord
@@ -31,6 +35,10 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable , :confirmable, :omniauthable, :omniauth_providers => [:facebook]
+
+has_many :bycicles
+  has_many :reports
+  has_many :comments
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100#" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
