@@ -16,6 +16,19 @@ DESCRIPTIONREPORT = [
     "Me la robaron al frente del Corral San Martin, en un segundo cortaron la cadena a plena luz del dia. RATAS. Moraleja, hay que comprar una cadena acorde con el valor de la bicicleta."
     ]
     
+    
+10.times do
+   Bycicle.create([{
+       serial: Faker::Code.asin,
+       state: Faker::Boolean.boolean,
+       color: Faker::Color.color_name,
+       description: "Grupo shimano",
+       type_bycicle_id: 1,
+       brand_id: 1,
+       user_id: 1
+   }]) 
+end
+    
 100.times do
     Report.create([{
         date: Faker::Date.backward(14),
