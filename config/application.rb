@@ -1,5 +1,4 @@
 require_relative 'boot'
-config.i18n.default_locale = :es
 
 require 'rails/all'
 
