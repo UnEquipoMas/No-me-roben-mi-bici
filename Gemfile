@@ -16,6 +16,9 @@ gem 'bootstrap_form'
 #Gema para el mapa
 gem 'gmaps4rails'
 
+#Gema para la paginacion
+gem 'will_paginate'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets

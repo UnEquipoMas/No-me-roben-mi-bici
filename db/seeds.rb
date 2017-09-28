@@ -46,7 +46,7 @@ end
         name: "Sitio",
         lat: Faker::Number.between(4.60000000000000, 4.70000000000000 ),
         lng: Faker::Number.between(-74.200000000000,-74.000000000000),
-        report_id: i
+        report_id: i + 1
         
     }])
 
