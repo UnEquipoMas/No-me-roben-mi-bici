@@ -1,3 +1,4 @@
+Time.zone = "Bogota"
 class ReportsController < ApplicationController
     def index
         @report = Report.order(id: :desc).joins(:site).paginate(:page => params[:page], :per_page => 9)
