@@ -63,9 +63,9 @@ gem 'foreman'
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
   gem 'sqlite3'
-gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+  gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 #Gema de faker
-  gem 'faker', :git => 'git://github.com/stympy/faker.git', 
+  gem 'faker'
 end
 
 group :development do

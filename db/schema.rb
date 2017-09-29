@@ -51,6 +51,13 @@ ActiveRecord::Schema.define(version: 20170927062835) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "microposts", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "modes", force: :cascade do |t|
     t.string "description", null: false
     t.datetime "created_at", null: false
@@ -124,10 +131,6 @@ ActiveRecord::Schema.define(version: 20170927062835) do
     t.datetime "locked_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "doc"
-    t.string "nick"
-    t.integer "phone"
-    t.string "photo"
     t.string "provider"
     t.string "uid"
     t.text "image"
@@ -135,6 +138,10 @@ ActiveRecord::Schema.define(version: 20170927062835) do
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer "doc"
+    t.string "nick"
+    t.integer "phone"
+    t.string "photo"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
