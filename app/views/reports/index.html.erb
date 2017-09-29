@@ -16,7 +16,7 @@
       <tbody>
         <% @report.each do |rep| %>
           <tr>
-            <td><%= rep.type_report.description %></td>
+            <h4><td><%= rep.type_report.description %></td></h4>
             <td><%= rep.site.name %></td>
             <td><%= rep.date %></td>
             <td><%= rep.hour%></td>
@@ -40,7 +40,10 @@
   var markers = [];
 
   handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+  handler.buildMap({ provider: {
+    zoom: 10,
+      center: new google.maps.LatLng(4.635540,-74.082807),
+  }, internal: {id: 'map'}}, function(){
   markers = handler.addMarkers(<%=raw @hash.to_json %>);
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();

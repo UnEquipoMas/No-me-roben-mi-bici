@@ -1,16 +1,17 @@
-<div class = "panel panel-default formulario">
-  <div class="headm">
-    <div class ="panel-heading">
-       <h2>¿Olvidaste tu contraseña?</h2>
-    </div>
-  </div>
-  <div class ="form1">
+<body class="logreg">
+  <div class="form-box">
+      <div class="form-pass">
+        <div class="form-top-left1">
+       <h4>¿Olvidaste tu contraseña?</h4>
+        </div>
+      </div>
+  <div class ="form-bottompass">
     <div class ="panel-body">
     <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
       <%= devise_error_messages! %>
     
-      <div class="field form-group casillas">
-        <%= f.label :email %>
+      <div class="form-group">
+        <h4><%= f.label :email %></h4>
         <%= f.email_field :email, autofocus: true, class: 'form-control' %>
       </div>
      <br>
@@ -19,8 +20,8 @@
       </div>
     <% end %>
     </div>
-  </div>
-  <div class ="panel-footer">
     <%= render "devise/shared/links" %>
   </div>
-</div>
+  </div>
+</body>
+
