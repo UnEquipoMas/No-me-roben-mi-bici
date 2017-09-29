@@ -1,5 +1,13 @@
 class ReportsController < ApplicationController
     def index
+        @report = Report.order(id: :desc).joins(:site).paginate(:page => params[:page], :per_page => 9)
+        
+        @hash = Gmaps4rails.build_markers(@report) do |user, marker|
+          marker.lat user.site.lat
+          marker.lng user.site.lng
+          marker.infowindow user.site.name
+          marker.json({title: user.site.name})
+        end
     end
     
     def new

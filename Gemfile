@@ -11,6 +11,15 @@ gem 'rails-controller-testing'
 gem 'rails', '~> 5.1.4'
 # Use sqlite3 as the database for Active Record
 
+#Gema para formularios bootstrap 
+gem 'bootstrap_form'
+
+#Gema para el mapa
+gem 'gmaps4rails'
+
+#Gema para la paginacion
+gem 'will_paginate'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -55,6 +64,8 @@ gem 'foreman'
   gem 'selenium-webdriver'
   gem 'sqlite3'
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+#Gema de faker
+  gem 'faker', :git => 'git://github.com/stympy/faker.git', 
 end
 
 group :development do
