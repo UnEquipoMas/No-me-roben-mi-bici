@@ -23,4 +23,8 @@ class Report < ApplicationRecord
     belongs_to :mode
     has_many :comments
     has_many :photo_reports
+    
+    def self.search(search)
+        where("content LIKE ? ", "%#{search}%", "%#{search}%") 
+    end
 end

@@ -1,8 +1,20 @@
 Time.zone = "Bogota"
 class ReportsController < ApplicationController
     def index
-        @report = Report.order(id: :desc).joins(:site).paginate(:page => params[:page], :per_page => 9)
         
+        if params[:one].present?
+          empty_search = params[:search].keep_if {|k, val| !val.blank?}.empty?
+        else
+          empty_search = true
+        end
+        
+        if !empty_search
+            @report = Report.search(params[:search]).order(id: :desc).joins(:site).paginate(:page => params[:page], :per_page => 9)
+        else
+            @report = Report.order(id: :desc).joins(:site).paginate(:page => params[:page], :per_page => 9)
+        end
+
+
         @hash = Gmaps4rails.build_markers(@report) do |user, marker|
           marker.lat user.site.lat
           marker.lng user.site.lng

@@ -53,7 +53,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'paperclip', '~> 4.1'
 gem 'popper_js'
-
+gem 'faker'
 
 group :development, :test do
 gem 'foreman'
@@ -65,7 +65,7 @@ gem 'foreman'
   gem 'sqlite3'
   gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 #Gema de faker
-  gem 'faker'
+
 end
 
 group :development do
