@@ -273,13 +273,10 @@ DEPENDENCIES
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
   devise
-<<<<<<< HEAD
+  faker!
   font-awesome-sass
   foreman
   geocoder
-=======
-  faker!
->>>>>>> Christian_Vaca
   gmaps4rails
   jbuilder (~> 2.5)
   jquery-rails
