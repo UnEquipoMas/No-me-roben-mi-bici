@@ -54,6 +54,7 @@ gem 'omniauth-facebook'
 gem 'paperclip', '~> 4.1'
 gem 'popper_js'
 gem 'faker'
+gem 'rails_admin'
 
 group :development, :test do
 gem 'foreman'
