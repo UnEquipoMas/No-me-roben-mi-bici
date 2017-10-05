@@ -1,7 +1,8 @@
-# Ruby on Rails Tutorial
+# Trabajo en clase Octubre 4
 
 ## "hello, world!"
 
-This is the first application for the
-[*Ruby on Rails Tutorial*](http://www.railstutorial.org/)
-by [Michael Hartl](http://www.michaelhartl.com/). Hello, world!
+Estuvimos mirando como implementar un sidebar
+Añadimos un nuevo campo "admin" a los usuarios
+Implementamos una gema "rails_admin" para poder hacer CRUD más fácilmente
+con nuestras cuentas de administración
