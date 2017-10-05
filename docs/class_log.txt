@@ -1,1 +1,4 @@
-Se integraron los cambios de los diferentes miembros del equipo (las diferentes ramas a la rama principal), se solucionaron conflictos. Se socializó el aprendizaje de cada miembro explicando cómo se logró cada funcionalidad desarrollada por cada miembro. Se realizaron solicitudes de cambios y con ello se asignaron nuevas tareas.
+Se implementó un sidebar
+Se añadieron privilegios de administrador
+Se utilizó una gema "rails_admin" para permitir la administración de
+los datos de forma más intuitiva y ahorrarnos el ingreso de datos por consola.
