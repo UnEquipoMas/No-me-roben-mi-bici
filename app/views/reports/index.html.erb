@@ -1,15 +1,16 @@
-<h1>Reportes</h1>
-
-<div class = "row">
-  <div class="col-sm-4">
-    <table border = "1">
-      <thead>
+<body class="logreg">
+  <div class="tablas">
+    <h4>Reportes</h4><br>
+  <div class="col-sm-6">
+    
+    <table class="table table-hover">
+      <thead class="thead-inverse">
         <tr>
-          <th>Tipo de reporte</th>
-          <th>Sitio</th>
-          <th>Fecha</th>
-          <th>Hora</th>
-          <th>Fecha de publicación</th>
+          <th><h4>Tipo de reporte</h4></th>
+          <th><h4>Sitio</h4></th>
+          <th><h4>Fecha</h4></th>
+          <th><h4>Hora</h4></th>
+          <th><h4>Fecha de publicación</h4></th>
         </tr>
       </thead>
     
@@ -27,10 +28,10 @@
     </table>
     <%= will_paginate @report %>
   </div>
-   
-   <div class="col-sm-8">
+</div>   
+   <div class="col-sm-2">
       <div>
-        <div id="map" style='width: 800px; height: 600px;'></div>
+        <div id="map" style='width: 700px; height: 550px;'></div>
       </div>
    </div>
 </div>
@@ -98,4 +99,4 @@
   }
     
 </script>
-
+</body>
