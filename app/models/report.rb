@@ -25,6 +25,7 @@ class Report < ApplicationRecord
     has_many :photo_reports
     
     def self.search(search)
-        where("content LIKE ? ", "%#{search}%", "%#{search}%") 
+        where("description LIKE ? ", "%#{search}%") 
     end
+    
 end
