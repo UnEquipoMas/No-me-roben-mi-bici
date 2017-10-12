@@ -44,6 +44,7 @@ gem 'bcrypt', '~> 3.1.7', platforms: [:ruby, :x64_mingw]
 gem 'devise'
 gem 'geocoder'
 gem 'gmaps4rails'
+gem 'rails_admin_rollincode', '~> 1.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 gem 'annotate', require: false
@@ -54,7 +55,7 @@ gem 'omniauth-facebook'
 gem 'paperclip', '~> 4.1'
 gem 'popper_js'
 gem 'faker'
-gem 'rails_admin'
+gem 'rails_admin', git: 'https://github.com/sferik/rails_admin.git'
 
 group :development, :test do
 gem 'foreman'

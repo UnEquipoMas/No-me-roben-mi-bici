@@ -1,5 +1,5 @@
 RailsAdmin.config do |config|
-
+  
   ### Popular gems integration
 
   ## == Devise ==
@@ -38,9 +38,4 @@ RailsAdmin.config do |config|
     # history_index
     # history_show
   end
-  
-  config.authorize_with do
-    redirect_to main_app.root_path unless current_user.admin?
-  end
-  
 end

@@ -1,9 +1,9 @@
 <body class="logreg">
   <div class="tablas">
-    <h4>Reportes</h4><br>
+    <h4>Reportes</h4>
   <div class="col-sm-6">
     
-    <table class="table table-hover">
+    <table class="table table-condensed">
       <thead class="thead-inverse">
         <tr>
           <th><h4>Tipo de reporte</h4></th>
@@ -17,11 +17,11 @@
       <tbody>
         <% @report.each do |rep| %>
           <tr>
-            <h4><td><%= rep.type_report.description %></td></h4>
-            <td><%= rep.site.name %></td>
-            <td><%= rep.date %></td>
-            <td><%= rep.hour%></td>
-            <td><%= rep.created_at %></td>
+            ><td><h4><%= rep.type_report.description %></h4></td>
+            <td><h4><%= rep.site.name %></h4></td>
+            <td><h4><%= rep.date %></h4></td>
+            <td><h4><%= rep.hour%></h4></td>
+            <td><h4><%= rep.created_at %></h4></td>
           </tr>
         <% end %>
       </tbody>
