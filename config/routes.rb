@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   get 'reports', to: 'reports#index'
   get 'reports/new', to: 'reports#new'
+  get 'reports/busqueda', to: 'reports#busqueda'
 
 
   resources :users

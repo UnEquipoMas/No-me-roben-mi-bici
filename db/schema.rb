@@ -131,6 +131,10 @@ ActiveRecord::Schema.define(version: 20171004200845) do
     t.datetime "locked_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "doc"
+    t.string "nick"
+    t.integer "phone"
+    t.string "photo"
     t.string "provider"
     t.string "uid"
     t.text "image"
@@ -138,11 +142,14 @@ ActiveRecord::Schema.define(version: 20171004200845) do
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
+<<<<<<< HEAD
     t.integer "doc"
     t.string "nick"
     t.integer "phone"
     t.string "photo"
     t.boolean "admin", default: false
+=======
+>>>>>>> Christian_Vaca
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
