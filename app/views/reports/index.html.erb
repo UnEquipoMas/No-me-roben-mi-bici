@@ -1,80 +1,28 @@
+<%= render 'reports/sidenav'%>
 <h1>Reportes</h1>
 
 <div class = "row">
-  <div class="col-sm-4">
-    <div class="form-bottom1">
-    <%= form_tag("reports/busqueda", method: 'get' ) do %>
-      <div class="form">
-        <h4><%= label_tag :Tipo_de_reporte %></h4>
-        <%= collection_select :type_report, :type_report_id, TypeReport.order(:id), :id, :description, include_blank: true %>
+  <div class="col-sm-5">
+    <% @report.each do |rep| %>
+      <div class = "row" style>
+        <div class = "col-sm-12">
+          <div class="form-control" style = "background-color: #f0f0f0; height: 100%;">
+            <b>Tipo:&nbsp;</b><%= rep.type_report.description %><br>
+            <b>Sitio:&nbsp;</b><%= rep.site.name %><br>
+            <b>Fecha:&nbsp;</b><%= rep.date %>&nbsp;&nbsp;<b>Hora:&nbsp;</b><%= rep.hour.to_formatted_s(:time)%><br>
+            <b>Fecha de publicacion:&nbsp</b><%= rep.created_at.time.to_formatted_s(:db) %>
+            <%= link_to "Ver", "reports/#{rep.id}" %>
+          </div>    
+        </div>
       </div>
-      <div class="form">
-        <h4><%= label_tag :Modalidad %></h4>
-        <%= collection_select :mode, :mode_id, Mode.order(:id), :id, :description, include_blank: true %>
-      </div>
-      <div class="form">
-        <h4><%= label_tag :Tipo_de_biciclets %></h4>
-        <%= collection_select :type_bycicles, :type_bycicle_id, TypeBycicle.order(:id), :id, :description, include_blank: true %>
-      </div>
-      <div class="form">
-        <h4><%= label_tag :Marcas %></h4>
-        <%= collection_select :brands, :brand_id, Brand.order(:id), :id, :description, include_blank: true %>
-      </div>
-      <div class="form">
-        <h4><%= label_tag :Fecha_desde %></h4>
-        <%= date_select :date1, selected: Date.today, start_year: Date.today.year, end_year: Date.today.year, include_blank: true %>
-      </div>
-      
-      <div class="form">
-        <h4><%= label_tag :Fecha_hasta %></h4>
-        <%= date_select :date2, selected: Date.today, start_year: Date.today.year, end_year: Date.today.year, include_blank: true %>
-      </div>
-      
-      <div class="form">
-        <h4><%= label_tag :Hora_desde %></h4>
-        <%= time_select :hour1, ampm: true, class: "form-user form-control"%>
-      </div>
-      
-      <div class="form">
-        <h4><%= label_tag :Hora_hasta %></h4>
-        <%= time_select :hour2, ampm: true, class: "form-user form-control"%>
-      </div>
-      
-      <%= hidden_field_tag :search, params[:search] %>
-      
-      <%= button_tag(type: "submit", class: "btn btn-default") do %>
-        Aplicar
-      <% end %>
+      <br>
     <% end %>
-  </div>
-    <table border = "1">
-      <thead>
-        <tr>
-          <th>Tipo de reporte</th>
-          <th>Sitio</th>
-          <th>Fecha</th>
-          <th>Hora</th>
-          <th>Fecha de publicación</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @report.each do |rep| %>
-          <tr>
-            <td><%= rep.type_report.description %></td>
-            <td><%= rep.site.name %></td>
-            <td><%= rep.date %></td>
-            <td><%= rep.hour%></td>
-            <td><%= rep.created_at %></td>
-            <td> <%= link_to "Ver", "reports/#{rep.id}" %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+  
+                 
     <%= will_paginate @report %>
   </div>
    
-  <div class="col-sm-8">
+  <div class="col-sm-7">
     <%= render 'reports/maps_index' %>
   </div>
 </div>
