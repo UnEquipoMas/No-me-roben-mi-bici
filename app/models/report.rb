@@ -21,7 +21,7 @@ class Report < ApplicationRecord
     belongs_to :bycicle
     belongs_to :user
     belongs_to :mode
-    has_many :comments, dependent: destroy
+    has_many :comments, dependent: :destroy
     has_many :photo_reports
     
     def self.search(search)

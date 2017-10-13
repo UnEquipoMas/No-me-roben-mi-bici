@@ -2,92 +2,60 @@
 body {
     font-family: "Lato", sans-serif;
 }
-
-.sidenav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 10;
-    top: 0;
-    left: 0;
-    background-color: #0B3B39;
-    overflow-x: hidden;
-    transition: 0.5s;
-    padding-top: 130px;
-}
-
-.sidenav a {
-    padding: 8px 8px 8px 32px;
-    text-decoration: none;
-    font-size: 25px;
-    color: #818181;
-    display: block;
-    transition: 0.3s;
-}
-
-.sidenav a:hover {
-    color: #f1f1f1;
-}
-
-.sidenav .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
-    padding-top: 90px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
 </style>
 
 <div id="mySidenav" class="sidenav">
     <div class="form-bottom1">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <%= form_tag("reports/busqueda", method: 'get' ) do %>
-      <div class="form">
+     
         <h4><%= label_tag :Tipo_de_reporte %></h4>
+         <div class="select">
         <%= collection_select :type_report, :type_report_id, TypeReport.order(:id), :id, :description, class: "form-user form-control" %>
       </div>
-      <div class="form">
+      
         <h4><%= label_tag :Modalidad %></h4>
+        <div class="select">
         <%= collection_select :mode, :mode_id, Mode.order(:id), :id, :description, include_blank: true, class: "form-user form-control" %>
       </div>
-      <div class="form">
+
         <h4><%= label_tag :Tipo_de_biciclets %></h4>
+              <div class="select">
         <%= collection_select :type_bycicles, :type_bycicle_id, TypeBycicle.order(:id), :id, :description, include_blank: true, class: "form-user form-control" %>
       </div>
-      <div class="form">
+     
         <h4><%= label_tag :Marcas %></h4>
+         <div class="select">
         <%= collection_select :brands, :brand_id, Brand.order(:id), :id, :description, include_blank: true, class: "form-user form-control" %>
       </div>
-      <div class="form">
+      
         <h4><%= label_tag :Fecha_desde %></h4>
+        <div class="select">
         <%= date_select :date1, selected: Date.today, start_year: Date.today.year, end_year: Date.today.year, include_blank: true, class: "form-user form-control" %>
       </div>
       
-      <div class="form">
+      
         <h4><%= label_tag :Fecha_hasta %></h4>
+        <div class="select">
         <%= date_select :date2, selected: Date.today, start_year: Date.today.year, end_year: Date.today.year, include_blank: true, class: "form-user form-control" %>
       </div>
       
-      <div class="form">
+   
         <h4><%= label_tag :Hora_desde %></h4>
+      <div class="select">
         <%= time_select :hour1, ampm: true, class: "form-user form-control"%>
       </div>
       
-      <div class="form">
+      
         <h4><%= label_tag :Hora_hasta %></h4>
+        <div class="select">
         <%= time_select :hour2, ampm: true, class: "form-user form-control"%>
       </div>
       
       <%= hidden_field_tag :search, params[:search] %>
       <br>
-      <div class = "form">
-          <div class="actions"><%= submit_tag :Aplicar %></div> 
+      <div class = "form" >
+          <div class="actions"><%= button_tag :Aplicar, class: 'btn' %></div> 
       </div>
 
     <% end %>
@@ -95,7 +63,7 @@ body {
       </div>
 </div>
 
-<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+<span style="font-size:30px;cursor:pointer;float:left;color:white" onclick="openNav()">&#9776;</span>
 
 <script>
 function openNav() {

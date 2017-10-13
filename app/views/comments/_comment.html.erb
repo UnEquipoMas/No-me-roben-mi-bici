@@ -1,4 +1,4 @@
-<h2>Este reporte tiene <%= pluralize(@comments.count, "comentario") %> </h2>
+<h2 style='color:white'>Este reporte tiene <%= pluralize(@comments.count, "comentario") %> </h2>
 
 <% @comments.each do |comment| %>
 <p style='text-align:left'> <b><%= comment.user.email  %> </b> dijo:  </p>

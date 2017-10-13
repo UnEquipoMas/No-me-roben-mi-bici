@@ -1,33 +1,34 @@
 <body class="logreg">
-<h1>Reporte</h1>
+  <h1>Reporte</h1>
 
-<div class = "row">
-  <div class="col-sm-5">
-    <div class="form-bottom1">
-      <div class="form">
-          <h4><%= label_tag :Tipo_de_reporte %></h4>
-          <%= text_field_tag :text, @report.type_report.description, disabled: true %>
-          <h4><%= label_tag :Fecha %></h4>
-          <%= text_field_tag :text, @report.date, disabled: true %>
-          <h4><%= label_tag :Hora %></h4>
-          <%= text_field_tag :text, @report.hour.to_formatted_s(:time), disabled: true %>
-          <h4><%= label_tag :Descripcion %></h4>
-          <%= text_area_tag :text, @report.description, cols: "50", rows: "6", class:"form-user form-control", disabled: true %>
-          <h4><%= label_tag :Modalidad %></h4>
-          <%= text_field_tag :text, @report.mode.description, disabled: true %>
-          <h4><%= label_tag :Bicicleta %></h4>
-          <%= text_field_tag :text, @report.bycicle.serial, disabled: true %>
+  <div class = "row">
+    <div class="col-sm-5">
+      <div class="form-bottom1">
+        <div class="form">
+            <h4><%= label_tag :Tipo_de_reporte %></h4>
+            <%= text_field_tag :text, @report.type_report.description, disabled: true %>
+            <h4><%= label_tag :Fecha %></h4>
+            <%= text_field_tag :text, @report.date, disabled: true %>
+            <h4><%= label_tag :Hora %></h4>
+            <%= text_field_tag :text, @report.hour.to_formatted_s(:time), disabled: true %>
+            <h4><%= label_tag :Descripcion %></h4>
+            <%= text_area_tag :text, @report.description, cols: "50", rows: "6", class:"form-user form-control", disabled: true %>
+            <h4><%= label_tag :Modalidad %></h4>
+            <%= text_field_tag :text, @report.mode.description, disabled: true %>
+            <h4><%= label_tag :Bicicleta %></h4>
+            <%= text_field_tag :text, @report.bycicle.serial, disabled: true %>
+        </div>
+      </div>
+    </div>
+     
+    <div class="col-sm-7">
+      <%= render 'reports/maps_index' %>
+  <div class="form-bottom1">
+        <%= render 'comments/comment'%>
       </div>
     </div>
   </div>
+  <div class='row'>
    
-  <div class="col-sm-7">
-    <%= render 'reports/maps_index' %>
-      <div class="form-bottom1">
-      <%= render 'comments/comment'%>
-      </div>
   </div>
-  
-    
-</div>
-</div>
+</body>
