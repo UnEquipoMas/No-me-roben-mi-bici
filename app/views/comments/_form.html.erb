@@ -1,4 +1,9 @@
 <%= form_for([@report, @report.comments.build]) do |f| %>
+<div>
   <%= f.text_area :content %>
+  </div>
+  <br>
+  <div>
   <%= f.submit %>
+  </div>
 <% end%>
