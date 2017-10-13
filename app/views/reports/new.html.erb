@@ -36,7 +36,7 @@
       
       <div class="form-group">
         <h4><%= f.label :Bicicleta %></h4>
-        <%= f.collection_select :bycicle_id, Bycicle.order(:id), :id, :serial, include_blank: true %>
+        <%= f.collection_select :bycicle_id, Bycicle.order(:id),:id, :serial, include_blank: true %>
       </div>
       <%= f.fields_for :site do |j| %>
         <%= j.hidden_field :lat %>

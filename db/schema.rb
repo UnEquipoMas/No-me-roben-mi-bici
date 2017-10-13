@@ -51,13 +51,6 @@ ActiveRecord::Schema.define(version: 20171004200845) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "microposts", force: :cascade do |t|
-    t.text "content"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "modes", force: :cascade do |t|
     t.string "description", null: false
     t.datetime "created_at", null: false
@@ -142,7 +135,6 @@ ActiveRecord::Schema.define(version: 20171004200845) do
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
-<<<<<<< HEAD
     t.integer "doc"
     t.string "nick"
     t.integer "phone"
