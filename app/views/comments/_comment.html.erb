@@ -1,0 +1,7 @@
+<% @comments.each do |comment| %>
+<p> <%= comment.content  %>  </p>
+  <%= link_to 'Eliminar Comentario', [comment.report,comment], method: :delete %>
+ <%= link_to 'Editar Comentario', edit_report_comment_path(comment.report,comment) %>
+<% end %>
+
+<%= render 'comments/form'%>

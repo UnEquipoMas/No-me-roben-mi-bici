@@ -87,11 +87,10 @@ class ReportsController < ApplicationController
         redirect_to "/reports"
     end
     
-    def edit
-    end
-    
+
     def show
         @report = Report.find(params[:id])
+        @comments= Comment.where(report_id: @report).order('created_at DESC')
         @hash = Gmaps4rails.build_markers(@report) do |user, marker|
           marker.lat user.site.lat
           marker.lng user.site.lng
