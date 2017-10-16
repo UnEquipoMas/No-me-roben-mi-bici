@@ -31,7 +31,7 @@
             position: latlng,
             map: handler.getMap()
           });
-          document.getElementById("report_site_name").value = results[1].formatted_address;
+          document.getElementById("report_site_attributes_name").value = results[1].formatted_address;
           infowindow.setContent(results[1].formatted_address);
           infowindow.open(map, marker);
         } else {
@@ -50,10 +50,10 @@
         map: handler.getMap(),
         draggable: true
     });
-    document.getElementById('report_site_lat').value = location;
-    var aux = document.getElementById('report_site_lat').value.substr(1,document.getElementById('report_site_lat').value.length - 2).split(",")
-    document.getElementById("report_site_lat").value = aux[0]
-    document.getElementById("report_site_long").value = aux[1]
+    document.getElementById('report_site_attributes_lat').value = location;
+    var aux = document.getElementById('report_site_attributes_lat').value.substr(1,document.getElementById('report_site_attributes_lat').value.length - 2).split(",")
+    document.getElementById("report_site_attributes_lat").value = aux[0]
+    document.getElementById("report_site_attributes_lng").value = aux[1]
     //document.getElementById("site_latitude").value = aux[0]
     //document.getElementById("site_longitude").value = aux[1]
 
