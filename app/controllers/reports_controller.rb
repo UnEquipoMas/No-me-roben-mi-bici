@@ -64,27 +64,26 @@ class ReportsController < ApplicationController
     
     def new
         @report = Report.new
+        @report.build_site
         #@site = Site.new
     end
     
     def create
-        @report = Report.new
+        @report = Report.new(report_params)
         @site = Site.new
         par = params.require(:report)
         @report.date = Date.new par["date(1i)"].to_i, par["date(2i)"].to_i, par["date(3i)"].to_i
         @report.hour = par["hour(4i)"] + ":" + par["hour(5i)"] + ":00"
-        @report.description = par[:description]
         @report.state = true
-        @report.type_report_id = par[:type_report_id]
-        @report.user_id = 1
-        @report.mode_id = par[:mode_id]
-        @report.bycicle_id = par[:bycicle_id]
+        @report.user_id = current_user.id
+        @report.site
         if @report.save
-            @site.name = par[:site][:name]
-            @site.lat = par[:site][:lat]
-            @site.lng = par[:site][:long]
-            @site.report_id = @report.id
-            @site.save
+            
+            # site.name = par[:site][:name]
+            # @site.lat = par[:site][:lat]
+            # @site.lng = par[:site][:long]
+            # @site.report_id = @report.id
+            # @site.save
             redirect_to "/reports"
         else
             flash[:alert] = @report.errors.full_messages.to_sentence
@@ -129,6 +128,10 @@ class ReportsController < ApplicationController
     private 
     
     def report_params
-        params.require(:report).permit(:description)
+        params.require(:report).permit(:description,:mode_id,:bycicle_id,:type_report_id, 
+        site_attributes: [:id,:name,:lat,:lng])
     end
+    
+    
+    
 end

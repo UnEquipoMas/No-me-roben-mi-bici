@@ -18,8 +18,8 @@
 class Report < ApplicationRecord
     include Imageable
     belongs_to :type_report
-    # accepts_nested_attributes_for :address
-    has_one :site
+    has_one :site, inverse_of: :report
+    accepts_nested_attributes_for :site
     belongs_to :bycicle
     belongs_to :user
     belongs_to :mode
