@@ -1,5 +1,6 @@
 Time.zone = "Bogota"
 class ReportsController < ApplicationController
+    
     def index
         query = ""
         if params[:search].present?
@@ -67,24 +68,28 @@ class ReportsController < ApplicationController
     end
     
     def create
-        report = Report.new
-        site = Site.new
+        @report = Report.new
+        @site = Site.new
         par = params.require(:report)
-        report.date = Date.new par["date(1i)"].to_i, par["date(2i)"].to_i, par["date(3i)"].to_i
-        report.hour = par["hour(4i)"] + ":" + par["hour(5i)"] + ":00"
-        report.description = par[:description]
-        report.state = true
-        report.type_report_id = par[:type_report_id]
-        report.user_id = 1
-        report.mode_id = par[:mode_id]
-        report.bycicle_id = par[:bycicle_id]
-        report.save 
-        site.name = par[:site][:name]
-        site.lat = par[:site][:lat]
-        site.lng = par[:site][:long]
-        site.report_id = report.id
-        site.save
-        redirect_to "/reports"
+        @report.date = Date.new par["date(1i)"].to_i, par["date(2i)"].to_i, par["date(3i)"].to_i
+        @report.hour = par["hour(4i)"] + ":" + par["hour(5i)"] + ":00"
+        @report.description = par[:description]
+        @report.state = true
+        @report.type_report_id = par[:type_report_id]
+        @report.user_id = 1
+        @report.mode_id = par[:mode_id]
+        @report.bycicle_id = par[:bycicle_id]
+        if @report.save
+            @site.name = par[:site][:name]
+            @site.lat = par[:site][:lat]
+            @site.lng = par[:site][:long]
+            @site.report_id = @report.id
+            @site.save
+            redirect_to "/reports"
+        else
+            flash[:alert] = @report.errors.full_messages.to_sentence
+            redirect_to "/reports/new"
+        end
     end
     
 

@@ -16,7 +16,9 @@
 #
 
 class Report < ApplicationRecord
+    include Imageable
     belongs_to :type_report
+    # accepts_nested_attributes_for :address
     has_one :site
     belongs_to :bycicle
     belongs_to :user
@@ -27,5 +29,7 @@ class Report < ApplicationRecord
     def self.search(search)
         where("description LIKE ? ", "%#{search}%") 
     end
+    
+    validates_with CantSeeTheFuture
     
 end
