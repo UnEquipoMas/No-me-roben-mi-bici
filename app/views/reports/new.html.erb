@@ -43,14 +43,16 @@
         <%= j.hidden_field :long %>
         <%= j.hidden_field :name %>
       <% end %>
-       
-       <div class="actions"><%= f.button "Crear reporte" , class: 'btn' %></div> 
+       <div class="actions"><%= f.button "Crear reporte" , class: 'btn' %></div>
     <% end %>
   </div>
   </div> 
 
    <div class="col-sm-8">
       <%= render 'reports/maps_new' %>
+   </div>
+   <div class="col-xs-6">
+     <input onclick="deleteMarkers()" type = "button"  class= "btn" value="Cambiar ubicación en el mapa">
    </div>
 </div>
 
