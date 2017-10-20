@@ -16,7 +16,6 @@
 #
 
 class Report < ApplicationRecord
-    include Imageable
     belongs_to :type_report
     has_one :site, inverse_of: :report
     accepts_nested_attributes_for :site
