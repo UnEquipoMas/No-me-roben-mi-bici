@@ -59,7 +59,6 @@ function dir (latlng){
 }
   function clearMarkers() {
         setMapOnAll(null);
-        
   }
   function deleteMarkers() {
         clearMarkers();

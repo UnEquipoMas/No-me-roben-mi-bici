@@ -81,16 +81,16 @@
             <h3>...o Inicia sesión con:</h3>
             <div class="social-login-buttons">
               <!--<a class="btn btn-link-1 btn-link-1-facebook" href="#">-->
-                <%= link_to user_facebook_omniauth_authorize_path, class:'btn btn-link-1 btn-link-1-facebook' do %>
+                <%= link_to user_omniauth_upgrade_path( :facebook), class:'btn btn-link-1 btn-link-1-facebook' do %>
                 <i class="fa fa-facebook"></i> Facebook
                 <% end %>
                 
               </a>
-              <a class="btn btn-link-1 btn-link-1-twitter" href="#">
                 <i class="fa fa-twitter"></i> Twitter
               </a>
-              <a class="btn btn-link-1 btn-link-1-google-plus" href="#">
-                <i class="fa fa-google-plus"></i> Google Plus
+               <%= link_to user_omniauth_upgrade_path( :google_oauth2 ), class:'btn btn-link-1 btn-link-1-google-plus ' do %>
+                <i class="fa google-plus"></i> Google Plus
+               <%end%>  
               </a>
             </div>
           </div>
