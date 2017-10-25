@@ -8,7 +8,7 @@
 <div class = "row">
   <div class="col-sm-4">
   <div class="form-bottom1">
-    <%= form_for @report, url: reports_path  do |f| %>
+    <%= form_for @report, url: reports_path, :html => { :multipart => true }  do |f| %>
       <div class="form-group">
        <h4> <%= f.label :Tipo_de_reporte %></h4>
         <%= f.collection_select :type_report_id, TypeReport.order(:id), :id, :description,include_blank: true, :class => 'form-user form-control'%>
@@ -35,11 +35,44 @@
       </div>
       
       <div class="form-group">
-         <%= f.fields_for :image_attachment do |image_upload| %> 
-         <%= image_upload.file_field :data, style: 'padding-bottom: 25px;' %>
-         <% end %>  
-        
+        <%= file_field_tag "images[]", type: :file, multiple: true %>
+
+         <%#= f.fields_for :photos do |image_upload| %> 
+         <%#= image_upload.file_field :image, multiple: true, style: 'padding-bottom: 25px;' %>
+         <%# end %>  
+         
+         
+        <output id="list"></output>
       </div>
+      
+      <script>
+  function handleFileSelect(evt) {
+    var files = evt.target.files; // FileList object
+    // Loop through the FileList and render image files as thumbnails.
+    for (var i = 0, f; f = files[i]; i++) {
+      // Only process image files.
+      if (!f.type.match('image.*')) {
+        continue;
+      }
+      var reader = new FileReader();
+      // Closure to capture the file information.
+      reader.onload = (function(theFile) {
+        return function(e) {
+          // Render thumbnail.
+          var span = document.createElement('span');
+          span.innerHTML = ['<img class="thumb" src="', e.target.result,
+                            '" title="', escape(theFile.name), '"/>'].join('');
+          document.getElementById('list').insertBefore(span, null);
+        };
+      })(f);
+      // Read in the image file as a data URL.
+      reader.readAsDataURL(f);
+    }
+  }
+
+  document.getElementById('report_photos_attributes_0_image').addEventListener('change', handleFileSelect, false);
+</script>
+      
       
       <div class="form-group">
         <h4><%= f.label :Bicicleta %></h4>
