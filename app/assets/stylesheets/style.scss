@@ -70,6 +70,14 @@ h4 {
     line-height: 30px;
 }
 
+h5 {
+	font-size: 21px;
+    font-weight: 300;
+    color: #fff;
+  margin: -23px auto;
+}
+
+
 img { max-width: 100%; }
 
 ::-moz-selection { background: #19b9e7; color: #fff; text-shadow: none; }
@@ -171,6 +179,12 @@ select::-ms-expand {
   -webkit-transition: .25s all ease;
   transition: .25s all ease;
 }
+.side {
+  font-size: 30px;
+  cursor: pointer;
+  float: left;
+  color: white;
+}
 
 /***** SideNav *****/
 .sidenav {
@@ -184,6 +198,7 @@ select::-ms-expand {
     overflow-x: hidden;
     transition: 0.5s;
     padding-top: 130px;
+    font-family: "Lato", sans-serif;
   &#mySidenav {
 	  width: 0;
 	}

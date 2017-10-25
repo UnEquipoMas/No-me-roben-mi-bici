@@ -4,7 +4,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Locations</h1>
-
+<input onclick="deleteMarkers();" type=button value="Delete Markers">
 <table>
   <thead>
     <tr>
@@ -14,7 +14,7 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
+  
   <tbody>
     <% @locations.each do |location| %>
       <tr>

@@ -52,10 +52,12 @@ gem 'mail_form', '~> 1.5', '>= 1.5.1'
 gem 'font-awesome-sass'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-twitter'
 gem 'paperclip', '~> 4.1'
 gem 'popper_js'
 gem 'faker'
 gem 'rails_admin', git: 'https://github.com/sferik/rails_admin.git'
+gem 'omniauth-google-oauth2'
 
 group :development, :test do
 gem 'foreman'

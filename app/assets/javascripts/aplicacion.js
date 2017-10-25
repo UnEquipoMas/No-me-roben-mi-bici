@@ -1,27 +1,13 @@
-<div>
-  <div class ="map2" id="map" ></div>
-</div>
-<script type="text/javascript">
-  var markers = [];
+function openNav() {
+    document.getElementById("mySidenav").style.width = "450px";
+}
 
-  handler = Gmaps.build('Google');
-  handler.buildMap({ 
-    provider: {
-      zoom: 10,
-      center: new google.maps.LatLng(4.635540,-74.082807),
-    }, 
-    internal: {
-      id: 'map'
-    }});
+function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+
   
-  google.maps.event.addListener(handler.getMap(), 'click', function(event) {
-    if(markers.length < 1){
-      placeMarker(event.latLng);
-      dir(event.latLng); 
-    }
-  })
-  
-  function dir (latlng){
+function dir (latlng){
     var geocoder = new google.maps.Geocoder();
     var infowindow = new google.maps.InfoWindow;
     geocoder.geocode({'location': latlng}, function(results, status) {
@@ -62,6 +48,19 @@
     google.maps.event.addListener(marker, 'click', function(event) {
       marker.setMap(null);
     });
+    markers.push(marker);
   }
-    
-</script>
+ 
+   function setMapOnAll(map) {
+        for (var i = 0; i < markers.length; i++) {
+          markers[i].setMap(map);
+        }
+        
+}
+  function clearMarkers() {
+        setMapOnAll(null);
+  }
+  function deleteMarkers() {
+        clearMarkers();
+        markers = [];
+      }
