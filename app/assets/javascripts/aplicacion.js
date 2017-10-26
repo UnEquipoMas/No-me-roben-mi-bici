@@ -22,12 +22,8 @@ function dir (latlng){
           document.getElementById("report_site_name").value = results[1].formatted_address;
           infowindow.setContent(results[1].formatted_address);
           infowindow.open(map, marker);
-        } else {
-          window.alert('No results found');
-        }
-      } else {
-        window.alert('Geocoder failed due to: ' + status);
-      }
+        } 
+      } 
     });
 
   }
