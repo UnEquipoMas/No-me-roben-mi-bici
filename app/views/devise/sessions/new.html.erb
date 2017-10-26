@@ -2,6 +2,9 @@
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <% end %>
 
@@ -11,8 +14,6 @@
 
 <!-- Top content -->
 <div class="top-content">
-
-  <div >
     <div class="container">
 
       <!--<div class="row">-->
@@ -68,35 +69,33 @@
                     <%= f.button 'Iniciar Sesión' , class: 'btn '%>
 
               <% end %>
-              <div >
-                <p style="color:opacity: 0.8;color: #fff;">
-                <%= render 'devise/shared/links' %>
-                </p>
-              </div>
-
-            </div>
-          </div>
-
-          <div class="social-login">
+              <div class="social-login">
             <h3>...o Inicia sesión con:</h3>
             <div class="social-login-buttons">
-              <!--<a class="btn btn-link-1 btn-link-1-facebook" href="#">-->
-               <%= link_to user_facebook_omniauth_authorize_path, class:'btn btn-link-1 btn-link-1-facebook ' do %>
-                <i class="fa fa-facebook"><h5>Facebook</h5></i>
+              
+               <%= link_to user_facebook_omniauth_authorize_path do %>
+                <button class="btn-fb btn-block btn-social"><i class="fa fa-facebook"></i> | Conectar con Facebook</button>
                <%end%>
-              </a>
-              <%= link_to user_twitter_omniauth_authorize_path, class:'btn btn-link-1 btn-link-1-twitter ' do %>
-                <i class="fa fa-twitter"><h5>Twitter</h5></i> 
+             <%= link_to user_github_omniauth_authorize_path do %>
+                <button class="btn-git btn-block btn-social"><i class="fa fa-github"></i> | Conectar con GitHub</button> 
               <%end%>
-              </a>
-               <%= link_to user_google_oauth2_omniauth_authorize_path, class:'btn btn-link-1 btn-link-1-google-plus ' do %>
-                <i class="fa fa-google-plus"><h5>Google</h5></i> 
+               <%= link_to user_google_oauth2_omniauth_authorize_path do %>
+                <button class="btn-google btn-block btn-social"><i class="fa fa-google"></i> | Conectar con Google</button>
                <%end%>  
               </a>
             </div>
-          </div>
-
+          </div><br>
+          <div>
+                <p style="color:opacity: 0.8;color: #fff; text-align:center;">
+                <%= render 'devise/shared/links' %>
+                </p>
+              </div>
         </div>
+              
+
+            </div>
+          </div>
+          
 
         <div class="col-sm-1 middle-border"></div>
         <div class="col-sm-1"></div>
