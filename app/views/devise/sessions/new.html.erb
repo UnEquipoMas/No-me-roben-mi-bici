@@ -14,8 +14,6 @@
 
 <!-- Top content -->
 <div class="top-content">
-
-  <div >
     <div class="container">
 
       <!--<div class="row">-->
@@ -71,15 +69,7 @@
                     <%= f.button 'Iniciar Sesión' , class: 'btn '%>
 
               <% end %>
-              <div >
-                <p style="color:opacity: 0.8;color: #fff;">
-                <%= render 'devise/shared/links' %>
-                </p>
-              </div>
-
-            </div>
-          </div>
-          <div class="social-login">
+              <div class="social-login">
             <h3>...o Inicia sesión con:</h3>
             <div class="social-login-buttons">
               
@@ -94,9 +84,18 @@
                <%end%>  
               </a>
             </div>
-          </div>
-
+          </div><br>
+          <div>
+                <p style="color:opacity: 0.8;color: #fff; text-align:center;">
+                <%= render 'devise/shared/links' %>
+                </p>
+              </div>
         </div>
+              
+
+            </div>
+          </div>
+          
 
         <div class="col-sm-1 middle-border"></div>
         <div class="col-sm-1"></div>
