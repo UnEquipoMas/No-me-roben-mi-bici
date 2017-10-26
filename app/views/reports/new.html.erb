@@ -8,7 +8,18 @@
 <div class = "row">
   <div class="col-sm-4">
   <div class="form-bottom1">
-    <%= form_for @report, url: reports_path, :html => { :multipart => true }  do |f| %>
+    
+<!--    <form action="/file-upload" class="dropzone">-->
+<!--    <div class="fallback">-->
+<!--    <input name="images[]" type="file" multiple />-->
+<!--  </div>-->
+<!--</form>-->
+
+
+
+    <%= form_for @report, url: reports_path, :html => { :multipart => true}  do |f| %>
+    
+    
       <div class="form-group">
        <h4> <%= f.label :Tipo_de_reporte %></h4>
         <%= f.collection_select :type_report_id, TypeReport.order(:id), :id, :description,include_blank: true, :class => 'form-user form-control'%>
@@ -33,9 +44,16 @@
         <h4><%= f.label :Modalidad %></h4>
         <%= f.collection_select :mode_id, Mode.order(:id), :id, :description, include_blank: true %>
       </div>
+
+
+
+<!--<div id="myDropZone" class="dropzone" >-->
+<!--               </div>-->
+               
       
       <div class="form-group">
-        <%= file_field_tag "images[]", type: :file, multiple: true %>
+        <%= file_field_tag "images[]", type: :file, multiple: false , id:"image1" %>
+        <%= file_field_tag "images[]", type: :file, multiple: false , id:"image2" %>
 
          <%#= f.fields_for :photos do |image_upload| %> 
          <%#= image_upload.file_field :image, multiple: true, style: 'padding-bottom: 25px;' %>
@@ -43,12 +61,21 @@
          
          
         <output id="list"></output>
+        <output id="list2"></output>
       </div>
       
       <script>
+      
+
   function handleFileSelect(evt) {
     var files = evt.target.files; // FileList object
     // Loop through the FileList and render image files as thumbnails.
+         var elementExists = document.getElementById("prev");
+          if (elementExists!=null) 
+          {
+            document.getElementById("prev").remove();
+          }
+          
     for (var i = 0, f; f = files[i]; i++) {
       // Only process image files.
       if (!f.type.match('image.*')) {
@@ -59,10 +86,47 @@
       reader.onload = (function(theFile) {
         return function(e) {
           // Render thumbnail.
-          var span = document.createElement('span');
-          span.innerHTML = ['<img class="thumb" src="', e.target.result,
+          var elementExists = document.getElementById("prev");
+          if (elementExists!=null) 
+          {
+            document.getElementById("prev").remove();
+          }
+            var span = document.createElement('span');
+            span.innerHTML = ['<img class="thumb" id="prev" width="300" height="300" src="', e.target.result,
                             '" title="', escape(theFile.name), '"/>'].join('');
-          document.getElementById('list').insertBefore(span, null);
+                            document.getElementById('list').insertBefore(span, null);
+        };
+      })(f);
+      // Read in the image file as a data URL.
+      reader.readAsDataURL(f);
+    }
+  }
+  
+  
+   function handleFileSelect2(evt) {
+    var files = evt.target.files; // FileList object
+    // Loop through the FileList and render image files as thumbnails.
+     var elementExists = document.getElementById("prev1");
+          if (elementExists!=null) 
+          {
+            document.getElementById("prev1").remove();
+          }
+          
+    for (var i = 0, f; f = files[i]; i++) {
+      // Only process image files.
+      if (!f.type.match('image.*')) {
+        continue;
+      }
+      var reader = new FileReader();
+      // Closure to capture the file information.
+      reader.onload = (function(theFile) {
+        return function(e) {
+          // Render thumbnail.
+          var sr= e.target.result +'" title="'+ escape(theFile.name);
+         
+            var span = document.createElement('span');
+            span.innerHTML = ['<img class="thumb" id="prev1" width="300" height="300" src="',sr,'"/>'].join('');
+            document.getElementById('list2').insertBefore(span, null);
         };
       })(f);
       // Read in the image file as a data URL.
@@ -70,7 +134,9 @@
     }
   }
 
-  document.getElementById('report_photos_attributes_0_image').addEventListener('change', handleFileSelect, false);
+    document.getElementById('image1').addEventListener('change', handleFileSelect, false);
+    document.getElementById('image2').addEventListener('change', handleFileSelect2, false);
+  
 </script>
       
       

@@ -152,11 +152,10 @@ class ReportsController < ApplicationController
     private 
     
     def report_params
-        params.require(:report).permit(:description,:mode_id,:bycicle_id,:type_report_id, :date,:hour,:photos,:images,
+        params.require(:report).permit(:description,:mode_id,:bycicle_id,:type_report_id, :date,:hour,:photos,:images,:images=>[],
         site_attributes: [:id,:name,:lat,:lng]
         )
     end
-    
     
     
 end

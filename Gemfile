@@ -52,12 +52,11 @@ gem 'mail_form', '~> 1.5', '>= 1.5.1'
 gem 'font-awesome-sass'
 gem 'omniauth'
 gem 'omniauth-facebook'
-<<<<<<< HEAD
+
 gem 'omniauth-twitter'
-gem 'paperclip', '~> 4.1'
-=======
-gem 'paperclip', '~> 5.1'
->>>>>>> f6304a7ca6c79975a7e6334cfbb33159bb9419fb
+
+gem 'paperclip'
+
 gem 'popper_js'
 gem 'faker'
 gem 'rails_admin', git: 'https://github.com/sferik/rails_admin.git'
