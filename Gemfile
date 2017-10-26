@@ -58,7 +58,10 @@ gem 'popper_js'
 gem 'faker'
 gem 'rails_admin', git: 'https://github.com/sferik/rails_admin.git'
 gem 'omniauth-google-oauth2'
-
+gem 'omniauth-instagram'
+gem 'omniauth-github'
+gem 'instagram'
+gem 'twitter'
 group :development, :test do
 gem 'foreman'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
