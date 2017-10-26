@@ -323,7 +323,7 @@ DEPENDENCIES
   mail_form (~> 1.5, >= 1.5.1)
   omniauth
   omniauth-facebook
-  paperclip (~> 5.1)
+  paperclip
   pg (= 0.20.0)
   popper_js
   puma (~> 3.7)
