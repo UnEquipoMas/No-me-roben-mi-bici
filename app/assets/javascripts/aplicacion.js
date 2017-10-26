@@ -47,20 +47,9 @@ function dir (latlng){
 
     google.maps.event.addListener(marker, 'click', function(event) {
       marker.setMap(null);
+      markers = [];
     });
     markers.push(marker);
   }
  
-   function setMapOnAll(map) {
-        for (var i = 0; i < markers.length; i++) {
-          markers[i].setMap(map);
-        }
-        
-}
-  function clearMarkers() {
-        setMapOnAll(null);
-  }
-  function deleteMarkers() {
-        clearMarkers();
-        markers = [];
-      }
+  
