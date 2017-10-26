@@ -21,18 +21,18 @@ https://trello.com/b/ccbkW53Q/sprint-4
 Trabajo realizado por cada integrante:
 
 Juan Esteban:
-1- Implementar login github, google
-2- Arreglar marcadores de google maps en el reporte
+- Implementar login github, google
+- Arreglar marcadores de google maps en el reporte
 
 Christian Vaca:
-1- Estadisticas y Pdfs
+- Estadisticas y Pdfs
 
 David Hoyos:
-1- Agregar validación de fecha al reporte y mostrar mensajes de error para todas las validaciones.
-2- Corregir modelo de reportes en formato de atributos anidados respecto al modelo sitio.
-3- Implementar modelo polimorfico con paperclip para uso de imagenes en general
-4- Agregar vistas previas a reportes nuevos y visualizar imagenes en los reportes.
-5- Arreglos esteticos en el nuevo reporte.
+- Agregar validación de fecha al reporte y mostrar mensajes de error para todas las validaciones.
+- Corregir modelo de reportes en formato de atributos anidados respecto al modelo sitio.
+- Implementar modelo polimorfico con paperclip para uso de imagenes en general
+- Agregar vistas previas a reportes nuevos y visualizar imagenes en los reportes.
+- Arreglos esteticos en el nuevo reporte.
 
 
 URL local:
