@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require popper
+//= require bootstrap-datepicker
 //= require rails-ujs
 //= require turbolinks
 //= require jquery
