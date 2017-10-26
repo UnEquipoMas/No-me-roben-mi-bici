@@ -6,8 +6,8 @@
               </div>
               </div>
 <div class = "row">
-  <div class="col-sm-4">
-  <div class="form-bottom1">
+  <div>
+  <div class="form-bottom">
     
 <!--    <form action="/file-upload" class="dropzone">-->
 <!--    <div class="fallback">-->
@@ -22,11 +22,17 @@
     
       <div class="form-group">
        <h4> <%= f.label :Tipo_de_reporte %></h4>
-        <%= f.collection_select :type_report_id, TypeReport.order(:id), :id, :description,include_blank: true, :class => 'form-user form-control'%>
+        <%= f.collection_select :type_report_id, TypeReport.order(:id), :id, :description,include_blank: false, :class => 'form-user form-control'%>
       </div>
       
       <div class="form-group">
-        <h4><%= f.label :Fecha %></h4>
+      <h4><%= f.label :Modalidad_del_Hurto %></h4>
+        <%= f.collection_select :mode_id, Mode.order(:id), :id, :description, include_blank: false %>
+      </div>
+      
+      <div class="form-group">
+        <h4><%= f.label :Fecha_del_Infortunio %></h4>
+        <input data-provide="datepicker">
         <%= f.date_select :date, selected: Date.today, start_year: Date.today.year, end_year: Date.today.year %>
       </div>
       
@@ -35,21 +41,20 @@
         <%= f.time_select :hour, ampm: true, class: "form-user form-control"%>
       </div>
       
+      
+      <div class="form-group">
+        <h4><%= f.label :Lugar %></h4>
+        <%= render 'reports/maps_new' %>
+      </div>
+      
       <div class="form-group">
        <h4> <%= f.label :Descripción %></h4>
         <%= f.text_area :description, cols: "50", rows: "8", class:"form-user form-control"%>
       </div>
-      
-      <div class="form-group">
-        <h4><%= f.label :Modalidad %></h4>
-        <%= f.collection_select :mode_id, Mode.order(:id), :id, :description, include_blank: true %>
-      </div>
-
-
-
+  
+  
 <!--<div id="myDropZone" class="dropzone" >-->
 <!--               </div>-->
-               
       
       <div class="form-group">
         <%= file_field_tag "images[]", type: :file, multiple: false , id:"image1" %>
@@ -58,11 +63,11 @@
          <%#= f.fields_for :photos do |image_upload| %> 
          <%#= image_upload.file_field :image, multiple: true, style: 'padding-bottom: 25px;' %>
          <%# end %>  
-         
-         
         <output id="list"></output>
         <output id="list2"></output>
       </div>
+      
+      
       
       <script>
       
@@ -137,6 +142,9 @@
     document.getElementById('image1').addEventListener('change', handleFileSelect, false);
     document.getElementById('image2').addEventListener('change', handleFileSelect2, false);
   
+  
+  
+  
 </script>
       
       
@@ -155,11 +163,9 @@
   </div> 
 
    <div class="col-sm-8">
-      <%= render 'reports/maps_new' %>
+
    </div>
-   <div class="col-xs-6">
-     <input onclick="deleteMarkers()" type = "button"  class= 'btn' value="Cambiar ubicación en el mapa">
-   </div>
+
 </div>
 
 </body>
