@@ -8,12 +8,12 @@
 </head>
 <body>
     <h3>Reportes realizados</h3>
-    <%= line_chart @reportes %>
+    <%= line_chart @reportes, legend: true, curve: false, width: "800px", height: "500px" %>
     <h3>Sitios reportados</h3>
-    <%= column_chart @sitios %>
+    <%= column_chart @sitios, legend: true, curve: false, width: "800px", height: "500px" %>
     <h3>Marcas de bicicletas</h3>
-    <%= pie_chart @brands %>
+    <%= pie_chart @brands, legend: true, curve: false, width: "800px", height: "500px" %>
     <h3>Tipo de bicicletas de bicicletas</h3>
-    <%= column_chart @tipoBici %>
+    <%= column_chart @tipoBici, legend: true, curve: false, width: "800px", height: "500px" %>
 </body>
 </html>
