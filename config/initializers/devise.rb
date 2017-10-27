@@ -254,6 +254,7 @@ Devise.setup do |config|
   require 'omniauth-google-oauth2'
   require 'omniauth-twitter'
   require 'omniauth-facebook'
+  config.secret_key = 'd1249e624aa7647cd53f2c66dd004e0148e8963c8cf5d3a000a75123df8003601beb3ecd7906a70285ce4893fcc200dc3fd3a400f16c4493aaa20236a3d3ecbc'
   config.omniauth :facebook, "128647204453664", "f469e8f43a71a0cb8e4695d111995a4c"
   config.omniauth :google_oauth2,"995178221856-d4pn4cb7o3a7cn31bsdahek47tlqvsuj.apps.googleusercontent.com","KPTTQU-Gdq-NDF-y1HbdJ4eU"
   config.omniauth :twitter, "IMgN8UrvILhtI53AE0ZtQFcN5","aCjNsAVPDkS7SA16tOyzvXtkfT9a70xjrNRuZ6xjNPkhflWflU"

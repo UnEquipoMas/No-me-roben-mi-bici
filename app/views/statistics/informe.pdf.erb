@@ -1,15 +1,19 @@
 <html>
 <head>
-    
+    <%= wicked_pdf_stylesheet_link_tag 'pdf'%>
+    <%= javascript_include_tag "https://www.google.com/jsapi" %>
+    <%= wicked_pdf_javascript_include_tag "chartkick" %>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <meta charset="utf-8">
 </head>
 <body>
     <h3>Reportes realizados</h3>
-    <%= line_chart @reportes %>
+    <%= line_chart @reportes, legend: true, curve: false, width: "800px", height: "500px" %>
     <h3>Sitios reportados</h3>
-    <%= column_chart @sitios %>
+    <%= column_chart @sitios, legend: true, curve: false, width: "800px", height: "500px" %>
     <h3>Marcas de bicicletas</h3>
-    <%= pie_chart @brands %>
+    <%= pie_chart @brands, legend: true, curve: false, width: "800px", height: "500px" %>
     <h3>Tipo de bicicletas de bicicletas</h3>
-    <%= column_chart @tipoBici %>
+    <%= column_chart @tipoBici, legend: true, curve: false, width: "800px", height: "500px" %>
 </body>
 </html>
