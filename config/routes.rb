@@ -12,7 +12,16 @@ Rails.application.routes.draw do
   get 'reports', to: 'reports#index'
   get 'reports/new', to: 'reports#new'
   get 'reports/busqueda', to: 'reports#busqueda'
-
+  
+  get 'statistics', to: 'statistics#index'
+  
+  '''namespace :statistics do 
+    get "brands"
+    get "type_bycicles"
+    get "reportes"
+    get "sitios"
+  end 
+'''
 
   resources :users
   resources :reports

@@ -18,6 +18,8 @@
 //= require bootstrap-sprockets
 //= require underscore
 //= require gmaps/google
+//= require Chart.bundle
+//= require chartkick
 //= require_tree .
 //= require underscore
 //= require gmaps/google

@@ -50,7 +50,7 @@ body {
   <%= form_tag("reports/busqueda", method: 'get' ) do %>
       <div class="form">
         <h4><%= label_tag :Tipo_de_reporte %></h4>
-        <%= collection_select :type_report, :type_report_id, TypeReport.order(:id), :id, :description, class: "form-user form-control" %>
+        <%= collection_select :type_report, :type_report_id, TypeReport.order(:id), :id, :description, include_blank: true, class: "form-user form-control" %>
       </div>
       <div class="form">
         <h4><%= label_tag :Modalidad %></h4>

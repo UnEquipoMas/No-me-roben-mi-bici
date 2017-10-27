@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-r = Random.new
+#r = Random.new
 
 DESCRIPTIONREPORT = [
     "Compas se acaban de robar esta bibicleta, por los lados de la av ciudad de cali, por el rincón de suba, frente al juan amarillo, tres costeños con cuchillos, te bajan de una patada de la bicicleta, te roban todo y no felices con ellos te lastiman para no poder seguirlos, he visto el mismo tipo de hurto en muchas ocasiones por el mismo sector, en las horas de la mañana, tengan mucho cuidado, siempre son los mismos usan una chaqueta de vigilancia tienen azotado el sector",
@@ -15,40 +15,17 @@ DESCRIPTIONREPORT = [
     "Me la robaron el sábado 23 de sep, en el puente de la 100 con autonorte, a mano armada. Para que estén pendientes al rodar por ahí muchachos",
     "Me la robaron al frente del Corral San Martin, en un segundo cortaron la cadena a plena luz del dia. RATAS. Moraleja, hay que comprar una cadena acorde con el valor de la bicicleta."
     ]
-    
-    
-10.times do
-   Bycicle.create([{
-       serial: Faker::Code.asin,
-       state: Faker::Boolean.boolean,
-       color: Faker::Color.color_name,
-       description: "Grupo shimano",
-       type_bycicle_id: 1,
-       brand_id: 1,
-       user_id: 1
-   }]) 
-end
+
     
 100.times do
     Report.create([{
-        date: Faker::Date.backward(14),
+        date: Faker::Date.between_except(1.year.ago, 1.year.from_now, Date.today),
         hour: Faker::Time.forward(23, :morning),
-        description: DESCRIPTIONREPORT[r.rand(5)],
+        description: DESCRIPTIONREPORT[rand(5)],
         type_report_id: 1,
         user_id: 1,
         mode_id: 1,
-        bycicle_id: 1
+        bycicle_id: 1,
     }])
-end
-
-100. times do |i|
-    Site.create([{
-        name: "Sitio",
-        lat: Faker::Number.between(4.60000000000000, 4.70000000000000 ),
-        lng: Faker::Number.between(-74.200000000000,-74.000000000000),
-        report_id: i + 1
-        
-    }])
-
 end
 
