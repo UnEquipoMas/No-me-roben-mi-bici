@@ -68,6 +68,11 @@ gem 'instagram'
 gem 'twitter'
 gem 'bootstrap-datepicker-rails'
 
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary-edge'
+gem "chartkick"
+gem "groupdate"
+
 
 group :development, :test do
 gem 'foreman'

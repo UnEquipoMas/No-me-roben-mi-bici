@@ -14,11 +14,20 @@ Rails.application.routes.draw do
   get 'reports/new', to: 'reports#new'
   get 'reports/busqueda', to: 'reports#busqueda'
   
+  get 'statistics', to: 'statistics#index'
+  
+  '''namespace :statistics do 
+    get "brands"
+    get "type_bycicles"
+    get "reportes"
+    get "sitios"
+  end 
+'''
+
   resources :users
   resources :reports do
-    resources :comments
+ resources :comments
   end
-  
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'static_pages#home'
 end
