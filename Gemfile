@@ -44,7 +44,7 @@ gem 'bcrypt', '~> 3.1.7', platforms: [:ruby, :x64_mingw]
 
 gem 'devise'
 gem 'geocoder'
-gem 'gmaps4rails'
+
 gem 'rails_admin_rollincode', '~> 1.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -72,7 +72,6 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary-edge'
 gem "chartkick"
 gem "groupdate"
-
 
 group :development, :test do
 gem 'foreman'
