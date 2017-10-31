@@ -12,4 +12,5 @@
 #
 
 class Site < ApplicationRecord
+   belongs_to :report
 end

@@ -17,15 +17,21 @@
 
 class Report < ApplicationRecord
     belongs_to :type_report
-    has_one :site
+    has_many :image_attachments, as: :imageable, dependent: :destroy
+    has_one :site, inverse_of: :report
+    accepts_nested_attributes_for :site
     belongs_to :bycicle
     belongs_to :user
     belongs_to :mode
     has_many :comments, dependent: :destroy
-    has_many :photo_reports
+    has_many :photo_reports, :dependent => :destroy
+    has_many :photos, :as => :attachable
+    accepts_nested_attributes_for :photos
     
     def self.search(search)
         where("description LIKE ? ", "%#{search}%") 
     end
+    
+    validates_with CantSeeTheFuture
     
 end

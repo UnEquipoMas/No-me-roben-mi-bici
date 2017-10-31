@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
   def create
      @comment = @report.comments.create(params[:comment].permit(:content))
      @comment.user_id = current_user.id
-     @comment.save
+    # @comment.save
      
      if @comment.save
       redirect_to report_path(@report)

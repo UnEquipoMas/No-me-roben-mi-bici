@@ -1,5 +1,6 @@
 Time.zone = "Bogota"
 class ReportsController < ApplicationController
+    
     def index
         query = ""
         if params[:search].present?
@@ -63,34 +64,61 @@ class ReportsController < ApplicationController
     
     def new
         @report = Report.new
+        @report.build_site
+        @report.photos.build
+        #@report.image_attachments =[]
         #@site = Site.new
     end
     
     def create
-        report = Report.new
-        site = Site.new
-        par = params.require(:report)
-        report.date = Date.new par["date(1i)"].to_i, par["date(2i)"].to_i, par["date(3i)"].to_i
-        report.hour = par["hour(4i)"] + ":" + par["hour(5i)"] + ":00"
-        report.description = par[:description]
-        report.state = true
-        report.type_report_id = par[:type_report_id]
-        report.user_id = 1
-        report.mode_id = par[:mode_id]
-        report.bycicle_id = par[:bycicle_id]
-        report.save 
-        site.name = par[:site][:name]
-        site.lat = par[:site][:lat]
-        site.lng = par[:site][:long]
-        site.report_id = report.id
-        site.save
-        redirect_to "/reports"
+        @report = Report.new(report_params)
+        @site = Site.new
+        #@image= ImageAttachment.create( data: File.new("public/images/thumb/missing.png"))
+        #@image.save
+        par = report_params
+        #@image = ImageAttachment.new(report_params[:image_attachment])
+        
+        
+        @report.date = Date.new par["date(1i)"].to_i, par["date(2i)"].to_i, par["date(3i)"].to_i
+        @report.hour = par["hour(4i)"] + ":" + par["hour(5i)"] + ":00"
+        @report.state = true
+        @report.user_id = current_user.id
+        #@report.images=par[:image_attachment][:images]
+        p "ASDFASFASDF" 
+        p par
+        if @report.save
+            if params[:images]
+                    #===== The magic is here ;)
+                params[:images].each { |image|
+                    @report.photos.create(image: image)
+                  #@report.image_attachments.create
+                   #@imageable.image_attachments.create(:data=>image)
+                }
+            else
+                p "----------------------------------------------------------------------------"
+            end  
+            
+        
+           # @image.save
+            
+            # site.name = par[:site][:name]
+            # @site.lat = par[:site][:lat]
+            # @site.lng = par[:site][:long]
+            # @site.report_id = @report.id
+            # @site.save
+            redirect_to "/reports"
+        else
+            flash[:alert] = @report.errors.full_messages.to_sentence
+            redirect_to "/reports/new"
+        end
     end
     
 
     def show
         @report = Report.find(params[:id])
         @comments= Comment.where(report_id: @report).order('created_at DESC')
+        @images= Photo.where(attachable_type: 'Report').where(attachable_id: @report)
+        
         @hash = Gmaps4rails.build_markers(@report) do |user, marker|
           marker.lat user.site.lat
           marker.lng user.site.lng
@@ -124,6 +152,10 @@ class ReportsController < ApplicationController
     private 
     
     def report_params
-        params.require(:report).permit(:description)
+        params.require(:report).permit(:description,:mode_id,:bycicle_id,:type_report_id, :date,:hour,:photos,:images,:images=>[],
+        site_attributes: [:id,:name,:lat,:lng]
+        )
     end
+    
+    
 end

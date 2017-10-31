@@ -5,6 +5,12 @@
     <div class="col-sm-5">
       <div class="form-bottom1">
         <div class="form">
+          
+            <% @images.each do |picture| %> 
+            <%= image_tag picture.image.url(:thumb)%>
+            <% end %>
+          <p></p>  
+          
             <h4><%= label_tag :Tipo_de_reporte %></h4>
             <%= text_field_tag :text, @report.type_report.description, disabled: true %>
             <h4><%= label_tag :Fecha %></h4>
@@ -17,6 +23,8 @@
             <%= text_field_tag :text, @report.mode.description, disabled: true %>
             <h4><%= label_tag :Bicicleta %></h4>
             <%= text_field_tag :text, @report.bycicle.serial, disabled: true %>
+            
+            
         </div>
       </div>
     </div>

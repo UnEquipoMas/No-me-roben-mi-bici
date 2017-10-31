@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171013044831) do
+ActiveRecord::Schema.define(version: 20171021224203) do
 
   create_table "brands", force: :cascade do |t|
     t.string "description", null: false
@@ -43,6 +43,30 @@ ActiveRecord::Schema.define(version: 20171013044831) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "image_attachments", force: :cascade do |t|
+    t.string "imageable_type"
+    t.integer "imageable_id"
+    t.string "data_file_name"
+    t.string "data_content_type"
+    t.integer "data_file_size"
+    t.datetime "data_updated_at"
+    t.boolean "default", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["imageable_id", "imageable_type", "default"], name: "unique_on_imageable_default", unique: true, where: "\"default\" = \"true\""
+    t.index ["imageable_type", "imageable_id"], name: "index_image_attachments_on_imageable_type_and_imageable_id"
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.string "file_id"
+    t.boolean "featured"
+    t.string "imageable_type"
+    t.integer "imageable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id"
+  end
+
   create_table "locations", force: :cascade do |t|
     t.string "address"
     t.float "latitude"
@@ -62,7 +86,23 @@ ActiveRecord::Schema.define(version: 20171013044831) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "report_id"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["report_id"], name: "index_photo_reports_on_report_id"
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.string "attachable_type"
+    t.integer "attachable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
+    t.index ["attachable_type", "attachable_id"], name: "index_photos_on_attachable_type_and_attachable_id"
   end
 
   create_table "reports", force: :cascade do |t|
