@@ -1,0 +1,9 @@
+<% if !@bycicles[0].nil? %>
+    <strong>        
+        La bicicleta con serial "<%= @bycicles[0].serial %>" ha sido reportada como robada.
+    </strong>
+<% else %>
+    <strong>        
+        La bicicleta no ha sido reportada como robada. Para mas información ver el siguiente
+    </strong>
+<% end %>

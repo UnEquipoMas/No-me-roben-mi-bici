@@ -51,7 +51,7 @@ class ReportsController < ApplicationController
         if !params[:search].present? and !params[:type_report].present? and !params[:mode].present? and !params[:type_bycicles].present? and !params[:brands].present? and !params[:date1].present? and !params[:date2].present?
             @report = Report.order(id: :desc).joins(:site).paginate(:page => params[:page], :per_page => 6)
         else
-            @report = Report.includes(:site, :mode, :type_report, :bycicle).joins(:site, :mode, :type_report, :bycicle,).where(query).paginate(:page => params[:page], :per_page => 6)
+            @report = Report.includes(:site, :mode, :type_report, :bycicle).joins(:site, :mode, :type_report, :bycicle).where(query).paginate(:page => params[:page], :per_page => 6)
         end
         
         puts "<<<<<<<<<<<<<>>>>>>>>>>>>>"
@@ -88,6 +88,7 @@ class ReportsController < ApplicationController
         site.lng = par[:site][:long]
         site.report_id = report.id
         site.save
+        Bycicle.update(par[:bycicle_id], state: true)
         redirect_to "/reports"
     end
     

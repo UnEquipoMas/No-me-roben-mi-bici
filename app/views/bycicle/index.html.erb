@@ -1,0 +1,33 @@
+<h1>Mis bicicletas</h1>
+
+<table>
+    <tr>
+        <th>#</th>
+        <th>Serial</th>
+        <th>Color</th>
+        <th>Descripción</th>
+        <th>Marca</th>
+        <th>Tipo</th>
+        <th>Robada</th>
+        <th></th>
+        <th></th>
+    </tr>
+    <% count = 0 %>
+    <% @bycicle.each do |byc| %>
+        <tr>
+            <td><%= count += 1 %></td>
+            <td><%= byc.serial %></td>
+            <td><%= byc.color %></td>
+            <td><%= byc.description %></td>
+            <td><%= byc.brand.description %></td>
+            <td><%= byc.type_bycicle.description %></td>
+            <td><% if byc.state %> Si
+                <% else %> No
+                <% end %>
+            </td>
+            <td><%= link_to "Editar", "/bicicletas/mis_bicicletas/#{byc.id}" %></td>
+            <td><%= link_to "Eliminar", "/bicicletas/del/#{byc.id}", method: :post  %></td>
+        </tr>
+    <% end %>
+</table>
+

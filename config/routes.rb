@@ -15,7 +15,16 @@ Rails.application.routes.draw do
   get 'reports/mis_reportes', to: 'reports#mis_reportes'
   
   get 'statistics', to: 'statistics#index'
-
+  
+  get 'bicicletas/mis_bicicletas', to: "bycicle#index"
+  get 'bicicletas/mis_bicicletas/:id', to: "bycicle#edit"
+  get 'bicicletas/new', to: "bycicle#new"
+  post 'bicicletas/create',  to: "bycicle#create"
+  post 'bicicletas/update',  to: "bycicle#update"
+  post 'bicicletas/del/:id', to: "bycicle#del"
+  get 'bicicletas/bici_robada', to: 'bycicle#bici_robada'
+  get 'bicicletas/robada', to: 'bycicle#robada'
+  
   resources :users
   resources :reports
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
