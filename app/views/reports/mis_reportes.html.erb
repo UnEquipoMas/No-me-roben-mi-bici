@@ -1,0 +1,24 @@
+<h1>Mis Reportes</h1>
+
+<div class = "row">
+  <div class="col-sm-5">
+    <% if @MiRep.length != 0
+        @MiRep.each do |rep| %>
+          <div class = "row" style>
+            <div class = "col-sm-12">
+              <div class="form-control" style = "background-color: #f0f0f0; height: 100%;">
+                <b>Tipo:&nbsp;</b><%= rep.type_report.description %><br>
+                <b>Sitio:&nbsp;</b><%= rep.site.name %><br>
+                <b>Fecha:&nbsp;</b><%= rep.date %>&nbsp;&nbsp;<b>Hora:&nbsp;</b><%= rep.hour.to_formatted_s(:time)%><br>
+                <b>Fecha de publicacion:&nbsp</b><%= rep.created_at.time.to_formatted_s(:db) %>
+                <%= link_to "Ver", "#{rep.id}" %>
+              </div>    
+            </div>
+          </div>
+          <br>
+        <% end %>
+    <% else %>
+        <h3>No tiene reportes</h3>
+    <% end %>
+  </div>
+</div>

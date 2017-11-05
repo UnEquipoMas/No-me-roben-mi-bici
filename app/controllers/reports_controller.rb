@@ -1,5 +1,10 @@
 Time.zone = "Bogota"
 class ReportsController < ApplicationController
+    
+    def mis_reportes
+        @MiRep = Report.mi_reporte(current_user.id)
+    end
+    
     def index
         query = ""
         if params[:search].present?
@@ -63,7 +68,6 @@ class ReportsController < ApplicationController
     
     def new
         @report = Report.new
-        #@site = Site.new
     end
     
     def create
@@ -75,7 +79,7 @@ class ReportsController < ApplicationController
         report.description = par[:description]
         report.state = true
         report.type_report_id = par[:type_report_id]
-        report.user_id = 1
+        report.user_id = current_user.id
         report.mode_id = par[:mode_id]
         report.bycicle_id = par[:bycicle_id]
         report.save 
