@@ -1,0 +1,68 @@
+<div>
+  <div id="map" style='width: 800px; height: 600px; margin: auto;'></div>
+</div>
+
+<script type="text/javascript">
+  var markers = [];
+  var json_array = (<%=raw @hash.to_json%>);
+  var circles;
+  var lataux=[4.57,4.58,4.59,4.60,4.61,4.62,4.63,4.64,4.65,4.66,4.67,4.68,4.69,4.70,4.71,4.72,4.73,4.74,4.75,4.76,4.77,4.78,4.79,4.80,4.81];
+  var lngaux= [-74.05,-74.06,-74.07,-74.08,-74.09,-74.10,-74.11,-74.12,-74.13,-74.14,-74.15,-74.16,-74.17,-74.18,-74.19,-74.20,-74.21,-74.22,-74.23,-74.24,-74.25,-74.26,-74.27,-74.28,-74.29];
+  var latux=[];
+  var lngux=[];
+  var cont =[0,0,0,0,0,0,0,0,0,0,0,0];
+  handler = Gmaps.build('Google');
+  handler.buildMap({ 
+    provider: {
+      zoom: 12,
+      center: new google.maps.LatLng(4.635540,-74.082807),
+  }, internal: {id:'map'}}, function(){
+    for (var i = 0; i <json_array.length; i++) {
+      for (var j = 0; j <lataux.length; j++){ 
+        if((json_array[i].lat > lataux[j] && json_array[i].lat < lataux[j+1])){
+          latux[j]=json_array[i].lat;
+          lngux[j]=json_array[i].lng; 
+          cont[j]++;
+        }
+      }
+    }
+    for (var i = 0; i <12; i++) {
+        if(cont[i]>0 && cont[i]<6){
+          circles = handler.addCircles(
+          [{ lat:  latux[i], lng: lngux[i], radius: 900 }],
+          {strokeColor: '#088A08', fillColor: '#00FF00',fillOpacity: 0.1}
+          );
+          markers = handler.addMarkers([
+          {
+            lat: latux[i],
+            lng: lngux[i],
+            infowindow: "Se han presentado "+cont[i]+" hurtos en esta zona."
+          }
+        ]);
+        }
+        else if(cont[i]>5 && cont[i]<=30){
+          circles = handler.addCircles(
+          [{ lat:  latux[i], lng: lngux[i], radius: 1300 }],
+          {strokeColor: '#FF0000', fillColor: '#FE2E2E',fillOpacity: 0.25}
+          );
+          markers = handler.addMarkers([
+          {
+            lat: latux[i],
+            lng: lngux[i],
+            infowindow: "Se han presentado "+cont[i]+" hurtos en esta zona."
+          }
+        ]);  
+        } 
+        if(cont[i]>30){
+          circles = handler.addCircles(
+          [{ lat:  latux[i], lng: lngux[i], radius: 1600 }],
+          {strokeColor: '#610B0B', fillColor: '#3B0B0B',fillOpacity: 0.3}
+          );
+          markers = handler.addMarkers(
+            [{ lat:  latux[i], lng: lngux[i]}],);
+        }
+    }  
+    handler.bounds.extendWith(circles);
+
+     });
+</script>

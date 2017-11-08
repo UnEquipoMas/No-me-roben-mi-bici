@@ -16,7 +16,7 @@ gem 'rails', '~> 5.1.4'
 gem 'bootstrap_form'
 
 #Gema para el mapa
-gem 'gmaps4rails'
+gem 'gmaps4rails', '~> 2.1', '>= 2.1.2'
 
 #Gema para la paginacion
 gem 'will_paginate'
@@ -44,7 +44,6 @@ gem 'bcrypt', '~> 3.1.7', platforms: [:ruby, :x64_mingw]
 
 gem 'devise'
 gem 'geocoder'
-gem 'gmaps4rails'
 gem 'rails_admin_rollincode', '~> 1.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

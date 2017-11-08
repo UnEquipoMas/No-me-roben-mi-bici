@@ -364,7 +364,7 @@ DEPENDENCIES
   font-awesome-sass
   foreman
   geocoder
-  gmaps4rails
+  gmaps4rails (~> 2.1, >= 2.1.2)
   instagram
   jbuilder (~> 2.5)
   jquery-rails
@@ -396,5 +396,8 @@ DEPENDENCIES
   web-console (>= 3.3.0)
   will_paginate
 
+RUBY VERSION
+   ruby 2.4.0p0
+
 BUNDLED WITH
-   1.16.0.pre.2
+   1.16.0

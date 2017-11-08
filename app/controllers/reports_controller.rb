@@ -62,6 +62,66 @@ class ReportsController < ApplicationController
         end
     end
     
+    def heatmap
+        query = ""
+        if params[:search].present?
+            query += "(sites.name like '%" + params[:search] + "%' or reports.description like '%" + params[:search] + "%')"
+        end
+        
+        if params[:type_report].present?
+            if query != ""
+                query += " and "
+            end
+            query += "(reports.type_report_id =" + params[:type_report] + ")"
+        end
+        
+        if params[:mode].present?
+            if query != ""
+                query += " and "
+            end
+            query += "(reports.mode_id =" + params[:mode] + ")"
+        end
+        
+        if params[:type_bycicles].present?
+            if query != ""
+                query += " and "
+            end
+            query += "(bycicles.type_bycicle_id =" + params[:type_bycicles] + ")"
+        end
+        
+        if params[:brands].present?
+            if query != ""
+                query += " and "
+            end
+            query += "(bycicles.brand_id =" + params[:brands] + ")"
+        end
+        
+        if params[:date1].present? and params[:date2].present?
+            if query != ""
+                query += " and "
+            end
+            query += "(date >= '" + params[:date1] + "' and date <= '" + params[:date2] + "')"
+        end
+        puts "_____________________________________________"
+        puts query
+        
+        if !params[:search].present? and !params[:type_report].present? and !params[:mode].present? and !params[:type_bycicles].present? and !params[:brands].present? and !params[:date1].present? and !params[:date2].present?
+            @report = Report.order(id: :desc).joins(:site)
+        else
+            @report = Report.includes(:site, :mode, :type_report, :bycicle).joins(:site, :mode, :type_report, :bycicle,).where(query).paginate(:page => params[:page], :per_page => 6)
+        end
+        
+        puts "<<<<<<<<<<<<<>>>>>>>>>>>>>"
+        @var = @report.any?
+        puts "<<<<<<<<<<<<<>>>>>>>>>>>>>"
+        puts @var
+        @hash = Gmaps4rails.build_markers(@report) do |user, marker|
+          marker.lat user.site.lat
+          marker.lng user.site.lng
+          marker.infowindow user.site.name
+          marker.json({title: user.site.name})
+        end
+    end
     def new
         @report = Report.new
         @report.build_site
