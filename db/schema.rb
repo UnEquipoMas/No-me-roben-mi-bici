@@ -44,30 +44,6 @@ ActiveRecord::Schema.define(version: 20171109115601) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
-  create_table "image_attachments", force: :cascade do |t|
-    t.string "imageable_type"
-    t.integer "imageable_id"
-    t.string "data_file_name"
-    t.string "data_content_type"
-    t.integer "data_file_size"
-    t.datetime "data_updated_at"
-    t.boolean "default", default: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["imageable_id", "imageable_type", "default"], name: "unique_on_imageable_default", unique: true, where: "\"default\" = \"true\""
-    t.index ["imageable_type", "imageable_id"], name: "index_image_attachments_on_imageable_type_and_imageable_id"
-  end
-
-  create_table "images", force: :cascade do |t|
-    t.string "file_id"
-    t.boolean "featured"
-    t.string "imageable_type"
-    t.integer "imageable_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id"
-  end
-
   create_table "locations", force: :cascade do |t|
     t.string "address"
     t.float "latitude"

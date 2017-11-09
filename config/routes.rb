@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get 'reports/new', to: 'reports#new'
   get 'reports/busqueda', to: 'reports#busqueda'
   get 'reports/mis_reportes', to: 'reports#mis_reportes'
+ get '/reports/heatmap', to: 'reports#heatmap'
   
   get 'statistics', to: 'statistics#index'
   

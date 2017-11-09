@@ -4,18 +4,16 @@
 
 <script type="text/javascript">
   var markers = [];
+  var json_array = (<%=raw @hash.to_json%>);
   handler = Gmaps.build('Google');
   handler.buildMap({ 
     provider: {
-      zoom: 10,
+      zoom: 11,
       center: new google.maps.LatLng(4.635540,-74.082807),
-  }, internal: {id: 'map'}}, function(){
-  markers = handler.addMarkers(<%=raw @hash.to_json %>);
+  }, internal: {id:'map'}}, function(){
+    markers = handler.addMarkers(<%=raw @hash.to_json %>);
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
-  });
-  
-  google.maps.event.addListener(handler.getMap(), 'click', function(event) {
-    dir(event.latLng);
-  })
+    
+     });
 </script>

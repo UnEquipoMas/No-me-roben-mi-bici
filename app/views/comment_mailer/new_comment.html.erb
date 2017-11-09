@@ -1,0 +1,9 @@
+<p>
+  Un nuevo comentario ha sido hecho en su reporte <%= link_to @report.description %>
+</p>
+<blockquote>
+    <em><%= @comments.body %></em>
+</blockquote>
+<p>
+    Para ver este comentario, por favor visite <%= link_to "report page", @report %>
+</p>
