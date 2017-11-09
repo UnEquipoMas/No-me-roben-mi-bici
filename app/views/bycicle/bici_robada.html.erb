@@ -1,0 +1,12 @@
+<h1>Busqueda bicicletas robadas</h1>
+
+<%= form_tag "robada", method: :get, remote: true, id: "search-from"  do %>
+    <div class="form-group">
+        <h4> <%= label_tag :Serial %></h4>
+        <%= text_field_tag :serial, nil%>
+    </div>
+    <div class="actions"><%= submit_tag "Buscar" %></div> 
+<% end %>
+
+<div id = "resultados"></div>
+    

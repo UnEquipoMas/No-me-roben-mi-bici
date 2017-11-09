@@ -18,6 +18,19 @@ class Bycicle < ApplicationRecord
     belongs_to :brand
     belongs_to :user
     belongs_to :type_bycicle
+
+def self.mis_bicicletas(id)
+        where(user_id: id, del: false)
+    end
+    
+    def self.bicicleta(id)
+        find_by_id(id)
+    end
+    
+    def self.rob(serial)
+        where("serial =  ? and state = ? ",serial, true)
+    end
+
     validates_associated :brand
     validates_associated :user
     validates_associated :type_bycicle

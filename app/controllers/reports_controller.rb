@@ -1,6 +1,10 @@
 Time.zone = "Bogota"
 class ReportsController < ApplicationController
     
+    def mis_reportes
+        @MiRep = Report.mi_reporte(current_user.id)
+    end
+    
     def index
         query = ""
         if params[:search].present?
@@ -47,7 +51,7 @@ class ReportsController < ApplicationController
         if !params[:search].present? and !params[:type_report].present? and !params[:mode].present? and !params[:type_bycicles].present? and !params[:brands].present? and !params[:date1].present? and !params[:date2].present?
             @report = Report.order(id: :desc).joins(:site).paginate(:page => params[:page], :per_page => 6)
         else
-            @report = Report.includes(:site, :mode, :type_report, :bycicle).joins(:site, :mode, :type_report, :bycicle,).where(query).paginate(:page => params[:page], :per_page => 6)
+            @report = Report.includes(:site, :mode, :type_report, :bycicle).joins(:site, :mode, :type_report, :bycicle).where(query).paginate(:page => params[:page], :per_page => 6)
         end
         
         puts "<<<<<<<<<<<<<>>>>>>>>>>>>>"
