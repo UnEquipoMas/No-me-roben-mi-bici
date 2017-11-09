@@ -18,9 +18,15 @@ class SiteTest < ActiveSupport::TestCase
   #   assert true
   # end
   
-  test 'valid site' do
-    # site = Site.new(name: 'Prueba', lat:'47', lng: '43', report_id:1)
-    # assert site.valid?
+  # test 'valid site' do
+  #   site = Site.new(name: 'Prueba', lat:'47', lng: '43', report_id:1)
+  #   assert site.valid?
+  # end
+
+  test 'invalid without email' do
+    site = Site.new(name: 'Simon bolivar')
+    refute site.valid?
+    assert_not_nil site.errors[:name]
   end
 
 end

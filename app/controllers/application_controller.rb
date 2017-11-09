@@ -25,4 +25,14 @@ class ApplicationController < ActionController::Base
         devise_parameter_sanitizer.permit(:account_update, keys:[:name, :email, :password, :current_password, :avatar])
     end
   
+   protected
+    def authenticate_user!
+      if user_signed_in?
+        super
+      else
+        redirect_to new_user_session_path, :notice => 'Debe iniciar sesión para poder acceder a esta página'
+        ## if you want render 404 page
+        ## render :file => File.join(Rails.root, 'public/404'), :formats => [:html], :status => 404, :layout => false
+      end
+    end
 end

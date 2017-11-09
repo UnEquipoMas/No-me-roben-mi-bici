@@ -1,6 +1,7 @@
 Time.zone = "Bogota"
 class ReportsController < ApplicationController
-    
+    before_action :authenticate_user!
+
     def index
         query = ""
         if params[:search].present?
