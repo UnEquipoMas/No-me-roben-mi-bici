@@ -10,4 +10,5 @@
 
 class TypeReport < ApplicationRecord
     has_many :reports
+    validates :description, presence: { message: 'Debe ingresar una referencia del tipo de reporte' }
 end

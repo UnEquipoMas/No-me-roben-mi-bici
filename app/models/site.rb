@@ -13,4 +13,9 @@
 
 class Site < ApplicationRecord
    belongs_to :report
+   validates_associated :report
+   validates :name, presence: { message: 'Debe ingresar un lugar' }
+   validates :lat, presence: { message: 'Debe ingresar un lugar' }
+   validates :lng, presence: { message: 'Debe ingresar un lugar' }
+   
 end

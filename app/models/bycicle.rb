@@ -15,7 +15,6 @@
 #
 
 class Bycicle < ApplicationRecord
-    include Imageable
     belongs_to :brand
     belongs_to :user
     belongs_to :type_bycicle

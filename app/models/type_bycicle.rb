@@ -10,4 +10,5 @@
 
 class TypeBycicle < ApplicationRecord
     has_many :bycicles
+    validates :description, presence: { message: 'Debe ingresar una referencia del tipo de cicla' }
 end
