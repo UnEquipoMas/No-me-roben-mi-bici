@@ -20,8 +20,16 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
+one: 
+  serial: 123547842165
+  color: black
+  state: true
+  description: MyDescription
 # column: value
 #
-two: {}
+two:   
+  serial: 987212312
+  color: black
+  state: true
+  description: MyDescription
 # column: value

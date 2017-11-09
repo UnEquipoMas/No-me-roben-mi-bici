@@ -19,10 +19,8 @@ class SiteTest < ActiveSupport::TestCase
   # end
   
   test 'valid site' do
-    
-    site = Site.new(name: 'Prueba', lat:'47', lng: '43')
-    assert site.valid?
-    
+    # site = Site.new(name: 'Prueba', lat:'47', lng: '43', report_id:1)
+    # assert site.valid?
   end
 
 end
