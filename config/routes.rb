@@ -26,9 +26,9 @@ Rails.application.routes.draw do
   get 'bicicletas/bici_robada', to: 'bycicle#bici_robada'
   get 'bicicletas/robada', to: 'bycicle#robada'
   
-  resources :users
+  # resources :users
   resources :reports do
- resources :comments
+    resources :comments
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'static_pages#home'

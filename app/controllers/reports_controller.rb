@@ -1,15 +1,12 @@
 Time.zone = "Bogota"
 class ReportsController < ApplicationController
-<<<<<<< HEAD
     before_action :authenticate_user!
 
-=======
-    
     def mis_reportes
         @MiRep = Report.mi_reporte(current_user.id)
     end
     
->>>>>>> 838a5380a0af374bf1d2e84d878096d36dfb2153
+
     def index
         query = ""
         if params[:search].present?

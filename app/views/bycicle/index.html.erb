@@ -1,33 +1,49 @@
-<h1>Mis bicicletas</h1>
 
-<table>
-    <tr>
-        <th>#</th>
-        <th>Serial</th>
-        <th>Color</th>
-        <th>Descripción</th>
-        <th>Marca</th>
-        <th>Tipo</th>
-        <th>Robada</th>
-        <th></th>
-        <th></th>
-    </tr>
-    <% count = 0 %>
-    <% @bycicle.each do |byc| %>
-        <tr>
-            <td><%= count += 1 %></td>
-            <td><%= byc.serial %></td>
-            <td><%= byc.color %></td>
-            <td><%= byc.description %></td>
-            <td><%= byc.brand.description %></td>
-            <td><%= byc.type_bycicle.description %></td>
-            <td><% if byc.state %> Si
-                <% else %> No
-                <% end %>
-            </td>
-            <td><%= link_to "Editar", "/bicicletas/mis_bicicletas/#{byc.id}" %></td>
-            <td><%= link_to "Eliminar", "/bicicletas/del/#{byc.id}", method: :post  %></td>
-        </tr>
-    <% end %>
-</table>
+<body class="logreg">
+  
+  <%= render :partial=> 'layouts/sidebar'%>
+  
 
+<div class="form-box">
+    <div class="row">
+        
+        <div class="form-pass">
+          <div class="form-top-left1">
+           <h1>Mis bicicletas</h1>
+          </div>  
+        </div>
+        <div class="form-bottompass">
+            <table>
+                    <tr>
+                        <th>#</th>
+                        <th>Serial</th>
+                        <th>Color</th>
+                        <th>Descripción</th>
+                        <th>Marca</th>
+                        <th>Tipo</th>
+                        <th>Robada</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <% count = 0 %>
+                    <% @bycicle.each do |byc| %>
+                        <tr>
+                            <td><%= count += 1 %></td>
+                            <td><%= byc.serial %></td>
+                            <td><%= byc.color %></td>
+                            <td><%= byc.description %></td>
+                            <td><%= byc.brand.description %></td>
+                            <td><%= byc.type_bycicle.description %></td>
+                            <td><% if byc.state %> Si
+                                <% else %> No
+                                <% end %>
+                            </td>
+                            <td><%= link_to "Editar", "/bicicletas/mis_bicicletas/#{byc.id}" %></td>
+                            <td><%= link_to "Eliminar", "/bicicletas/del/#{byc.id}", method: :post  %></td>
+                        </tr>
+                    <% end %>
+                </table>
+            </div>
+        </div>
+</div>
+</body>

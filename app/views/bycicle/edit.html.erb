@@ -1,3 +1,7 @@
+<body class="logreg">
+  
+  <%= render :partial=> 'layouts/sidebar'%>
+
 <div class = "row">
     <div class="col-sm-12">
         <%= form_for @bycicle, url: bicicletas_update_path, :method => :POST  do |f| %>
@@ -36,3 +40,4 @@
     <% end %>
   </div> 
 </div>
+</body>

@@ -20,9 +20,12 @@ class BycicleController < ApplicationController
     end
     
     def create
-        par = bycicle_params
-        Bycicle.create(serial: par[:serial], color: par[:color], description: par[:description], type_bycicle_id: par[:type_bycicle_id], brand_id: par[:brand_id], state: false, user_id: current_user.id)
-        redirect_to "/bicicletas/mis_bicicletas"
+        @bycicle = Bycicle.new(bycicle_params)
+        @bycicle.user_id = current_user.id
+        @bycicle.state=true
+         if @bycicle.save!
+            redirect_to bicicletas_mis_bicicletas_path  
+         end
     end
     
     def edit

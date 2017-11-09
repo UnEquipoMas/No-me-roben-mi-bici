@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170927062835) do
+ActiveRecord::Schema.define(version: 20171109115601) do
 
   create_table "brands", force: :cascade do |t|
     t.string "description", null: false
@@ -72,6 +72,13 @@ ActiveRecord::Schema.define(version: 20170927062835) do
     t.string "address"
     t.float "latitude"
     t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "microposts", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -165,10 +172,6 @@ ActiveRecord::Schema.define(version: 20170927062835) do
     t.datetime "locked_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "doc"
-    t.string "nick"
-    t.integer "phone"
-    t.string "photo"
     t.string "provider"
     t.string "uid"
     t.text "image"
@@ -176,6 +179,10 @@ ActiveRecord::Schema.define(version: 20170927062835) do
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.integer "doc"
+    t.string "nick"
+    t.integer "phone"
+    t.string "photo"
     t.boolean "admin", default: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
