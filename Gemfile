@@ -15,9 +15,6 @@ gem 'rails', '~> 5.1.4'
 #Gema para formularios bootstrap 
 gem 'bootstrap_form'
 
-#Gema para el mapa
-gem 'gmaps4rails', '~> 2.1', '>= 2.1.2'
-
 #Gema para la paginacion
 gem 'will_paginate'
 
