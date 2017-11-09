@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171021224203) do
+ActiveRecord::Schema.define(version: 20170927062835) do
 
   create_table "brands", force: :cascade do |t|
     t.string "description", null: false
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20171021224203) do
     t.integer "type_bycicle_id"
     t.integer "brand_id"
     t.integer "user_id"
+    t.boolean "del", default: false
     t.index ["brand_id"], name: "index_bycicles_on_brand_id"
     t.index ["type_bycicle_id"], name: "index_bycicles_on_type_bycicle_id"
     t.index ["user_id"], name: "index_bycicles_on_user_id"

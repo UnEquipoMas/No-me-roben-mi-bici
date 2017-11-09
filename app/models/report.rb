@@ -29,7 +29,11 @@ class Report < ApplicationRecord
     def self.search(search)
         where("description LIKE ? ", "%#{search}%") 
     end
-    
+
+    def self.mi_reporte(id)
+       where(user_id: id) 
+    end    
+
     validates :date, presence: { message: 'Debe ingresar una fecha' }
     validates :hour, presence: { message: 'Debe ingresar una hora' }
     validates :description, presence: { message: 'Debe ingresar una descripcion' }
