@@ -19,4 +19,10 @@ class Bycicle < ApplicationRecord
     belongs_to :brand
     belongs_to :user
     belongs_to :type_bycicle
+    validates_associated :brand
+    validates_associated :user
+    validates_associated :type_bycicle
+    validates :serial, uniqueness: true, presence: { message: 'Debe ingresar un serial único' }
+    validates :color, presence: { message: 'Debe ingresar un color' }
+    validates :description, presence: { message: 'Debe ingresar una descripcion' }
 end

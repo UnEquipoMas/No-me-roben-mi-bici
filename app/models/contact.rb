@@ -6,13 +6,10 @@ class Contact
 
   attr_accessor :name, :email, :content,:phone
 
-  validates :name,
-            presence: true
+  validates :name,presence: true
 
-  validates :email,
-            presence: true
+  validates :email,presence: true
 
-  validates :content,
-            presence: true
+  validates :content,presence: true
 
 end

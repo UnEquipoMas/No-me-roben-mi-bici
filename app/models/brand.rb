@@ -10,4 +10,5 @@
 
 class Brand < ApplicationRecord
     has_many :bycicles
+    validates :description, presence: { message: 'Debe ingresar una referencia o nombre de marca' }
 end
