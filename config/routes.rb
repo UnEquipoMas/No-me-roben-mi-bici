@@ -26,10 +26,20 @@ Rails.application.routes.draw do
   get 'bicicletas/bici_robada', to: 'bycicle#bici_robada'
   get 'bicicletas/robada', to: 'bycicle#robada'
   
-  resources :users
+
+  '''namespace :statistics do 
+    get "brands"
+    get "type_bycicles"
+    get "reportes"
+    get "sitios"
+  end 
+'''
+
   resources :users
   resources :reports do
     resources :comments
-  end  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  end
+  
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'static_pages#home'
 end

@@ -2,8 +2,7 @@
   <div class ="map2" id="map" ></div>
 </div>
 <script type="text/javascript">
-  var markers = [];
-
+  var marker;
   handler = Gmaps.build('Google');
   handler.buildMap({ 
     provider: {
@@ -14,54 +13,45 @@
       id: 'map'
     }});
   
-  google.maps.event.addListener(handler.getMap(), 'click', function(event) {
-    if(markers.length < 1){
-      placeMarker(event.latLng);
-      dir(event.latLng); 
-    }
+  google.maps.event.addListener(handler.getMap(), 'click', function(event) 
+  {
+      if(marker){
+        marker.setPosition(event.latLng);
+      }
+      else{
+        placeMarker(event.latLng);
+      }
+        dir(event.latLng); 
   })
   
-  function dir (latlng){
-    var geocoder = new google.maps.Geocoder();
-    var infowindow = new google.maps.InfoWindow;
-    geocoder.geocode({'location': latlng}, function(results, status) {
-      if (status === 'OK') {
-        if (results[1]) {
-          handler.getMap().setZoom(11);
-          var marker = new google.maps.Marker({
-            icon: 'info-i_maps.png',
-            position: latlng,
-            map: handler.getMap()
-          });
-          document.getElementById("report_site_name").value = results[1].formatted_address;
-          infowindow.setContent(results[1].formatted_address);
-          infowindow.open(map, marker);
-        } else {
-          window.alert('No results found');
-        }
-      } else {
-        window.alert('Geocoder failed due to: ' + status);
-      }
-    });
 
-  }
   
+
   function placeMarker(location) {
-    var marker = new google.maps.Marker({
+    marker = new google.maps.Marker({
         position: location, 
         map: handler.getMap(),
         draggable: true
     });
-    document.getElementById('report_site_lat').value = location;
-    var aux = document.getElementById('report_site_lat').value.substr(1,document.getElementById('report_site_lat').value.length - 2).split(",")
-    document.getElementById("report_site_lat").value = aux[0]
-    document.getElementById("report_site_long").value = aux[1]
-    //document.getElementById("site_latitude").value = aux[0]
-    //document.getElementById("site_longitude").value = aux[1]
-
-    google.maps.event.addListener(marker, 'click', function(event) {
-      marker.setMap(null);
+    
+     google.maps.event.addListener(marker, "dragend", function() {
+      dir(marker.getPosition());
     });
+
+  }
+  
+    function dir (latlng)
+    {
+      document.getElementById('report_site_attributes_lat').value = latlng;
+      var aux = document.getElementById('report_site_attributes_lat').value.substr(1,document.getElementById('report_site_attributes_lat').value.length - 2).split(",");
+      document.getElementById("report_site_attributes_lat").value = aux[0];
+      document.getElementById("report_site_attributes_lng").value = aux[1];  
+        
+      var geocoder = new google.maps.Geocoder();
+      geocoder.geocode({'location': latlng}, function(results, status) 
+      {
+        document.getElementById("report_site_attributes_name").value = results[1].formatted_address;
+      });
   }
     
 </script>

@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby "2.4"
+ruby "2.4.0"
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -60,18 +60,20 @@ gem 'paperclip'
 
 gem 'popper_js'
 gem 'faker'
-gem 'wicked_pdf'
-gem 'wkhtmltopdf-binary-edge'
-gem "chartkick"
-gem "groupdate"
-
-
+<<<<<<< Temporary merge branch 1
 gem 'rails_admin', git: 'https://github.com/sferik/rails_admin.git'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-instagram'
 gem 'omniauth-github'
 gem 'instagram'
 gem 'twitter'
+=======
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary-edge'
+gem "chartkick"
+gem "groupdate"
+
+>>>>>>> Temporary merge branch 2
 group :development, :test do
 gem 'foreman'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

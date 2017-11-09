@@ -6,8 +6,8 @@
               </div>
               </div>
 <div class = "row">
-  <div class="col-sm-4">
-  <div class="form-bottom1">
+  <div>
+  <div class="form-bottom">
     
 <!--    <form action="/file-upload" class="dropzone">-->
 <!--    <div class="fallback">-->
@@ -19,51 +19,96 @@
 
     <%= form_for @report, url: reports_path, :html => { :multipart => true}  do |f| %>
     
-    
-      <div class="form-group">
-       <h4> <%= f.label :Tipo_de_reporte %></h4>
-        <%= f.collection_select :type_report_id, TypeReport.order(:id), :id, :description,include_blank: true, :class => 'form-user form-control'%>
-      </div>
+    <div class = "row">
+            <div class="col-sm-3">
+              <h4> <%= f.label :Tipo_de_reporte %></h4>
+              <div class="select">
+                  <%= f.collection_select :type_report_id, TypeReport.order(:id), :id, :description,include_blank: false%>
+                  <div class="select__arrow"></div>
+              </div>
+            </div>
+            
+            <div class="col-sm-3">
+            <h4><%= f.label :Modalidad_del_Hurto %></h4>
+            <div class="select">
+              <%= f.collection_select :mode_id, Mode.order(:id), :id, :description, include_blank: false,:class => 'form-user form-control' %>
+                 <div class="select__arrow"></div>
+              </div>
+              
+            </div>
+            
+            <div class="col-sm-3" id="sandbox-container">
+              <h4><%= f.label :Fecha_del_Infortunio %></h4>
       
-      <div class="form-group">
-        <h4><%= f.label :Fecha %></h4>
-        <%= f.date_select :date, selected: Date.today, start_year: Date.today.year, end_year: Date.today.year %>
-      </div>
+              <%= f.date_select :date, selected: Date.today, start_year: Date.today.year, end_year: Date.today.year,:class => 'form-user form-control' %>
+            </div>
+
+            <div class="col-sm-3">
+              <h4><%= f.label :Hora %></h4>
+              <%= f.time_select :hour, ampm: true, class: "form-user form-control"%>
+            </div>
       
-      <div class="form-group">
-        <h4><%= f.label :Hora %></h4>
-        <%= f.time_select :hour, ampm: true, class: "form-user form-control"%>
+      </div>
+      <div class="row">
+         <div class="col-sm-3">
+          <h4><%= f.label :Bicicleta %></h4>
+           <div class="select"> 
+            <%= f.collection_select :bycicle_id, Bycicle.order(:id),:id, :serial, include_blank: true %>
+                <div class="select__arrow"></div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+          <div class="form-group">
+            <div class="col-sm-3">
+              <h4><%= f.label :Lugar %></h4>
+            </div>
+              <%= render 'reports/maps_new' %>
+          </div>
       </div>
       
       <div class="form-group">
        <h4> <%= f.label :Descripción %></h4>
         <%= f.text_area :description, cols: "50", rows: "8", class:"form-user form-control"%>
       </div>
-      
-      <div class="form-group">
-        <h4><%= f.label :Modalidad %></h4>
-        <%= f.collection_select :mode_id, Mode.order(:id), :id, :description, include_blank: true %>
-      </div>
-
-
-
+  
+  
 <!--<div id="myDropZone" class="dropzone" >-->
 <!--               </div>-->
-               
       
-      <div class="form-group">
-        <%= file_field_tag "images[]", type: :file, multiple: false , id:"image1" %>
-        <%= file_field_tag "images[]", type: :file, multiple: false , id:"image2" %>
+      <div class="col-md-6">
+        <label class="btn btn-default btn-file"> Subir Imagen 1
 
+        <%= file_field_tag "images[]", type: :file, multiple: false , id:"image1", style:"display:none" %>
+        
+        </label>
          <%#= f.fields_for :photos do |image_upload| %> 
          <%#= image_upload.file_field :image, multiple: true, style: 'padding-bottom: 25px;' %>
          <%# end %>  
-         
-         
         <output id="list"></output>
-        <output id="list2"></output>
+     
       </div>
       
+       <div class="col-md-6">
+         <label class="btn btn-default btn-file"> Subir Imagen 2
+          <%= file_field_tag "images[]", type: :file, multiple: false , id:"image2" %>
+        </label>
+      
+         <output id="list2"></output>
+        </div>
+      
+      <%= f.fields_for :site do |j| %>
+        <%= j.hidden_field :name %>
+        <%= j.hidden_field :lat %>
+        <%= j.hidden_field :lng %>
+      <% end %>
+      <br>
+       <div class="actions"><%= f.button "Crear reporte" , class: 'btn' %></div>
+    <% end %>
+  </div>
+  </div> 
+</div>
+
       <script>
       
 
@@ -142,7 +187,7 @@
       
       <div class="form-group">
         <h4><%= f.label :Bicicleta %></h4>
-        <%= f.collection_select :bycicle_id, Bycicle.order(:id), :id, :serial, include_blank: true %>
+        <%= f.collection_select :bycicle_id, Bycicle.order(:id),:id, :serial, include_blank: true %>
       </div>
       <%= f.fields_for :site do |j| %>
         <%= j.hidden_field :name %>

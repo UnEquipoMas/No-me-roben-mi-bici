@@ -1,6 +1,6 @@
 Sprint 4
 
-UNEQUIPOMÁS
+## "hello, world!"
 
 Funcionalidades:
 - Inicio de sesión con Facebook, Google y github

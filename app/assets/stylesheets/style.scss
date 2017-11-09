@@ -28,7 +28,7 @@ body.logreg {
    min-height: 300px;
    width: 700px;
    height: 450px;
-   margin: -79px 0px 0px 100px;
+   margin: 0px 0px 0px 100px;
  }
 
 .legend {
@@ -127,18 +127,34 @@ img { max-width: 100%; }
 .btn-link-2:active, .btn-link-2:active:focus { outline: 0; opacity: 0.6; background: rgba(0, 0, 0, 0.3); color: #fff; }
 
 /***** Select*****/
+.btn-file {
+    position: relative;
+    overflow: hidden;
+    background: #197ee75c;
+    color: white;
 
-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  -ms-appearance: none;
-  appearance: none;
-  outline: 0;
-  box-shadow: none;
-  border: 0 !important;
-  background: #588fc5;
-  background-image: none;
 }
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+
+.row{
+	margin: 0;
+}
+
 /* Custom Select */
 .select {
   position: relative;
@@ -150,36 +166,69 @@ select {
   overflow: hidden;
   border-radius: .25em;
 }
-select {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0 0 0 .5em;
-  color: #fff;
-  cursor: pointer;
+
+
+.select {
+	position: relative;
+	display: inline-block;
+	width: 100%;
+	margin-bottom: 15px;
 }
-select::-ms-expand {
-  display: none;
+
+.select select {
+	display: inline-block;
+	width: 100%;
+	padding: 10px 15px;
+	cursor: pointer;
+	color: #7b7b7b;
+	border: 0;
+	border-radius: 0;
+	outline: 0;
+	background: #e6e6e6;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
 }
-/* Arrow */
-.select::after {
-  content: '\25BC';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  padding: 0 1em;
-  // background: #34495e;
-  pointer-events: none;
+
+.select select::-ms-expand {
+	display: none;
 }
-/* Transition */
-.select:hover::after {
-  color: #f39c12;
+
+.select select:hover,
+.select select:focus {
+	color: #000;
+	background: #ccc;
 }
-.select::after {
-  -webkit-transition: .25s all ease;
-  transition: .25s all ease;
+
+.select select:disabled {
+	pointer-events: none;
+	opacity: .5;
 }
+
+.select__arrow {
+	position: absolute;
+	top: 16px;
+	right: 15px;
+	width: 0;
+	height: 0;
+	pointer-events: none;
+	border-width: 8px 5px 0 5px;
+	border-style: solid;
+	border-color: #7b7b7b transparent transparent transparent;
+}
+.select select:hover ~ .select__arrow,
+.select select:focus ~ .select__arrow {
+	border-top-color: #000;
+}
+
+.select select:disabled ~ .select__arrow {
+	border-top-color: #ccc;
+}
+
+
+
+
+
 .side {
   font-size: 30px;
   cursor: pointer;
