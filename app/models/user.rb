@@ -36,7 +36,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable , :confirmable, :validatable ,:omniauthable, :omniauth_providers => [:facebook,:github,:twitter,:google_oauth2]
 
-
 has_many :bycicles
   has_many :reports
   has_many :comments,dependent: :destroy
