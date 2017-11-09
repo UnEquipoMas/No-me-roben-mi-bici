@@ -60,6 +60,12 @@ gem 'paperclip'
 
 gem 'popper_js'
 gem 'faker'
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary-edge'
+gem "chartkick"
+gem "groupdate"
+
+
 gem 'rails_admin', git: 'https://github.com/sferik/rails_admin.git'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-instagram'

@@ -55,4 +55,5 @@ Rails.application.configure do
   #Configura el mailer para el login
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   config.action_mailer.delivery_method = :smtp
+  config.web_console.whiny_requests = false
 end

@@ -31,7 +31,9 @@ class Report < ApplicationRecord
     def self.search(search)
         where("description LIKE ? ", "%#{search}%") 
     end
-    
     validates_with CantSeeTheFuture
-    
+    def self.mi_reporte(id)
+       where(user_id: id) 
+    end
+
 end

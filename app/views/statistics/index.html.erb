@@ -1,0 +1,9 @@
+<%= link_to 'PDF', "statistics.pdf" %>
+<h3>Reportes realizados</h3>
+<%= line_chart @reportes %>
+<h3>Sitios reportados</h3>
+<%= column_chart @sitios %>
+<h3>Marcas de bicicletas</h3>
+<%= pie_chart @brands %>
+<h3>Tipo de bicicletas de bicicletas</h3>
+<%= column_chart @tipoBici %>
