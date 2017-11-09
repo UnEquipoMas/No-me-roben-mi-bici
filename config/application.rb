@@ -24,5 +24,7 @@ module HelloApp
      :user_name => "L4NC3L0G4NW0LFST41N@gmail.com",
      :password => "nomerobenmibici"
     }
+    
+    config.active_job.queue_adapter = :delayed_job
   end
 end

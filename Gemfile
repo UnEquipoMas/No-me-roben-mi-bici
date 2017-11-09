@@ -58,6 +58,9 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary-edge'
 gem "chartkick"
 gem "groupdate"
+gem 'delayed_job'
+gem 'delayed_job_active_record'
+gem 'daemons'
 
 group :development, :test do
 gem 'foreman'

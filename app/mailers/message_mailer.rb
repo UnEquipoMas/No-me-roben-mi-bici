@@ -8,6 +8,11 @@ class MessageMailer < ApplicationMailer
 
     mail subject: "Contact from #{message.name}"
   end
-
+    
+  def comentario_reporte(name, recipient, report)
+    @name = name
+    @report = report
+    mail to: recipient,  subject: 'NMRB - Tienes un nuevo comentario'
+  end
 
 end
