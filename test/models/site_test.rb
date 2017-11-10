@@ -23,7 +23,7 @@ class SiteTest < ActiveSupport::TestCase
   #   assert site.valid?
   # end
 
-  test 'invalid without email' do
+  test 'invalid with just name' do
     site = Site.new(name: 'Simon bolivar')
     refute site.valid?
     assert_not_nil site.errors[:name]

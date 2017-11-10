@@ -28,3 +28,7 @@ two:
   hour: 2017-09-23 23:26:27
   description: MyText
   state: false
+  mode: one
+  bycicle: one
+  user: one
+  type_report: one

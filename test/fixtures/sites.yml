@@ -21,6 +21,7 @@ one:
   name: 'Prueba2'
   lat: '47'
   lng: '43'
+  report: two
   
 
 # column: value

@@ -34,4 +34,12 @@ class UserTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
+  def setup
+    @user = users(:one)
+  end
+  
+  
+  test '#bicicletas' do
+    assert_equal 2, @user.bycicles.size
+  end
 end

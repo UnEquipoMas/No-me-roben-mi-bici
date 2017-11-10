@@ -25,6 +25,7 @@ one:
   color: black
   state: true
   description: MyDescription
+  user: one
 # column: value
 #
 two:   
@@ -32,4 +33,5 @@ two:
   color: black
   state: true
   description: MyDescription
+  user: one
 # column: value

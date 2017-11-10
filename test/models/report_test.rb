@@ -21,4 +21,16 @@ class ReportTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
+  
+  test "no debe guardar"  do
+    report= reports(:one)
+    assert_not report.save
+  end
+  
+    
+  test "deberia guardar"  do
+    report= reports(:two)
+    assert report.save
+  end
+  
 end
