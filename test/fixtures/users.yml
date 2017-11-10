@@ -36,8 +36,8 @@
 #
 one: 
   name: luke
-  email: user@example.com
-  encrypted_password: <%= Devise::Encryptor.digest(User, "password") %> 
+  email: dahoyosr@gmail.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, '92013105083') %> 
   created_at: <%= 1.weeks.ago %>
 
 # column: value
