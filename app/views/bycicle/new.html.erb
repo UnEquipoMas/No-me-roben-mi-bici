@@ -2,37 +2,45 @@
   
   <%= render :partial=> 'layouts/sidebar'%>
 
-    <div class = "row">
-        <div class="col-sm-12">
-            <%= form_for @bycicle, url: "create"  do |f| %>
-                <div class="form-group">
-                    <h4> <%= f.label :Serial %></h4>
-                    <%= f.text_field :serial%>
-                </div>
-                
-                <div class="form-group">
-                    <h4> <%= f.label :Color %></h4>
-                    <%= f.text_field :color%>
-                </div>
+    <div class="form-box">
+        <div class="form-pass">
+            <div class="form-top-left1">
+                <h4>Nueva bicicleta</h4>
+            </div>  
+        </div>  
+        <div class="form-bottompass">
+            <div class ="form-group">
+                <%= form_for @bycicle, url: "create"  do |f| %>
+                    <div class="form-group">
+                        <h4> <%= f.label :Serial %></h4>
+                        <%= f.text_field :serial, autofocus: true , class: 'form-control'%>
+                    </div>
+                    
+                    <div class="form-group">
+                        <h4> <%= f.label :Color %></h4>
+                        <%= f.text_field :color, autofocus: true , class: 'form-control'%>
+                    </div>
+                      
+                    <div class="form-group">
+                        <h4> <%= f.label :Descripción %></h4>
+                        <%= f.text_area :description, cols: "30", rows: "8" , class: 'form-control'%>
+                    </div>
                   
-                <div class="form-group">
-                    <h4> <%= f.label :Descripción %></h4>
-                    <%= f.text_area :description, cols: "50", rows: "8"%>
-                </div>
-              
-                <div class="form-group">
-                    <h4><%= f.label :Tipo_de_bicicleta %></h4>
-                    <%= f.collection_select :type_bycicle_id, TypeBycicle.order(:id), :id, :description, include_blank: true %>
-                </div>
-                
-                <div class="form-group">
-                    <h4><%= f.label :Marca %></h4>
-                    <%= f.collection_select :brand_id, Brand.order(:id), :id, :description, include_blank: true %>
-                </div>
-           
-           <div class="actions">
-               <%= f.submit "Crear Bicicleta" %></div> 
-        <% end %>
-      </div> 
+                    <div class="form-group">
+                        <h4><%= f.label :Tipo_de_bicicleta %></h4>
+                        <%= f.collection_select :type_bycicle_id, TypeBycicle.order(:id), :id, :description, {prompt: "Seleccione el tipo"}, {class: "form-control"} %>
+                    </div>
+                    
+                    <div class="form-group">
+                        <h4><%= f.label :Marca %></h4>
+                        <%= f.collection_select :brand_id, Brand.order(:id), :id, :description, {prompt: "Seleccione la marca"}, {class: "form-control"} %>
+                    </div>
+               
+                   <div class="actions">
+                       <%= f.submit "Crear Bicicleta" %>
+                    </div> 
+                <% end %>
+            </div>
+        </div>
     </div>
 </body>
