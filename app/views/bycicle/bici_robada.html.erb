@@ -1,12 +1,23 @@
-<h1>Busqueda bicicletas robadas</h1>
-
-<%= form_tag "robada", method: :get, remote: true, id: "search-from"  do %>
-    <div class="form-group">
-        <h4> <%= label_tag :Serial %></h4>
-        <%= text_field_tag :serial, nil%>
+<body class="logreg">
+    <div class="form-box">
+        <div class="form-pass">
+            <div class="form-top-left1">
+                <h4>Busqueda bicicletas robadas</h4>
+            </div>  
+        </div>  
+        <div class="form-bottompass">
+            <div class ="form-group">
+                <%= form_tag "robada", method: :get, remote: true, id: "search-from"  do %>
+                    <div class="form-group">
+                        <h4> <%= label_tag :Serial %></h4>
+                        <%= text_field_tag :serial, nil%>
+                    </div>
+                    <div class="actions"><%= submit_tag "Buscar" %></div> 
+                <% end %>
+                
+                <div id = "resultados" style="color: #fff"></div>
+            </div>
+        </div>
     </div>
-    <div class="actions"><%= submit_tag "Buscar" %></div> 
-<% end %>
-
-<div id = "resultados"></div>
+</body>
     
