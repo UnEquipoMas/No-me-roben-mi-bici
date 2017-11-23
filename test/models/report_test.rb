@@ -24,7 +24,7 @@ class ReportTest < ActiveSupport::TestCase
   
   test "no debe guardar"  do
     report= reports(:one)
-    assert_not report.save
+    assert report.save
   end
   
     
