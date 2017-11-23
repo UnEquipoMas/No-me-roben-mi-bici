@@ -1,38 +1,16 @@
 <header class="headerNmrmb navbar navbar-fixed-top navbar-inverse">
   <div class="container">
     <nav>
-      <ul class="nav navbar-nav navbar-center col-xs-4">
+      <ul class="nav navbar-nav navbar-center col-xs-2">
         <li>
           <%= link_to "NMRMB", root_path, id: "logo" %>
         </li>
         </ul>
         
-          <ul class="nav navbar-nav navbar-center col-xs-8">
-            <li> 
-                <div class="input-group">
-                  <!--<select class="form-control" id="exampleFormControlSelect1">-->
-                  <!--  <option hidden value="" selected disabled>Please select</option>-->
-                  <!--  <option>1</option>-->
-                  <!--  <option>2</option>-->
-                  <!--  <option>3</option>-->
-                  <!--  <option>4</option>-->
-                  <!--  <option>5</option>-->
-                  <!--</select>-->
-                  <!--<div class="input-group-btn search-panel">-->
-                  <!--    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">-->
-                  <!--    	<span id="search_concept">Filtrar por</span> <span class="caret"></span>-->
-                  <!--    </button>-->
-                  <!--    <ul class="dropdown-menu" role="menu">-->
-                  <!--      <li><a href="#contains">Lugar</a></li>-->
-                  <!--      <li><a href="#its_equal">Marca</a></li>-->
-                  <!--      <li><a href="#greather_than">Hora ></a></li>-->
-                  <!--      <li><a href="#less_than">Less than <  </a></li>-->
-                  <!--      <li class="divider"></li>-->
-                  <!--      <li><a href="#all">Búsqueda Avanzada</a></li>-->
-                  <!--    </ul>-->
-                  <!--</div>-->
-                  <!--<input type="hidden" name="search_param" value="all" id="search_param">-->
-                  
+          <ul class="nav navbar-nav navbar-center col-xs-5">
+          
+            <li style="width:100%">
+                <div class="input-group" style="float:right">
                   <%= form_tag(reports_path, method: 'get', class: 'navbar-form navbar-right') do %>
                   <!--<#%= search_field_tag 'search', nil, class: 'form-control', placeholder: 'Buscar'  %>-->
                     <%= text_field_tag :search, params[:search], class:'form-control', type:'text' %>
@@ -44,26 +22,36 @@
                   
                   <!--<input type="text" class="form-control" name="x">-->
                 </div>
-            </li>
+               
+              </li>
+            </ul>
             
-            <li><%= link_to "Informes",statistics_path %></li>
-
-       
-          <% if user_signed_in? %>
-          <li><%= link_to "Reportar", new_report_path %></li>
-          <li><%= link_to "Bicis robadas", "/bicicletas/bici_robada" %></li>
-          <!--<li><#%=link_to "Editar cuenta",edit_user_registration_path%></li>-->
-          <!--<li><#%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>-->
-          <!--<li style="color: #9d9d9d">Bienvenido <strong><#%= current_user.name %></strong>.</li>-->
-          <!--<li class="round-image-50"><#%= image_tag current_user.avatar.url(:thumb) %></li>-->
-              <li>
+            <ul class="nav navbar-nav navbar-center col-xs-5" style="padding-left:0px;margin-top:10px">
+             <li>
                 <div class='btn-group2 pull-right right-nav'>
                   <button type="button" class="btn btn-mini dropdown-toggle" data-toggle="dropdown">
-                    <span> Cuenta </span>
+                    <span> Informes</span>
                     <span class="caret"></span>
                      
                   </button>
                   <ul class='dropdown-menu' role='menu'>
+                    <li><%= link_to "Estadísticas",statistics_path,:class => 'navbar-link' %></li>
+                    <li><%= link_to "Zonas de riesgo",reports_heatmap_path, :class => 'navbar-link' %></li>
+                  </ul>
+                </div>
+              </li>
+
+          <% if user_signed_in? %>
+          <li><%= link_to "Reportar", new_report_path %></li>
+          <li><%= link_to "Bicis robadas", "/bicicletas/bici_robada" %></li>
+                <li>
+                <div class='btn-group2 pull-right right-nav'>
+                  <button type="button" class="btn btn-mini dropdown-toggle" data-toggle="dropdown">
+                    <span> Mi cuenta </span>
+                    <span class="caret"></span>
+                  </button>
+                  <ul class='dropdown-menu' role='menu'>
+                    <li><%=link_to "Mis bicis",bicicletas_mis_bicicletas_path, :class => 'navbar-link'%></li>
                     <li><%=link_to "Editar cuenta",edit_user_registration_path, :class => 'navbar-link'%></li>
                     <li><%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>
                     <% if current_user.admin?%>
@@ -72,27 +60,10 @@
                   </ul>
                 </div>
               </li>
-          
           <% else %>
           <li><%= link_to "Entrar/Registrarse", new_user_session_path %></li>
           <% end %>
-             
-
-         
       </ul>
-
-<!--<div class="dropdown">-->
-<!--    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
-<!--      Dropdown button-->
-<!--    </button>-->
-<!--    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">-->
-<!--      <a class="dropdown-item" href="#">Action</a>-->
-<!--      <a class="dropdown-item" href="#">Another action</a>-->
-<!--      <a class="dropdown-item" href="#">Something else here</a>-->
-<!--    </div>-->
-<!--</div>-->
-
-
 
     </nav>
   </div>

@@ -69,6 +69,8 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary-edge'
 gem "chartkick"
 gem "groupdate"
+gem 'active_link_to'
+
 
 group :development, :test do
 gem 'foreman'

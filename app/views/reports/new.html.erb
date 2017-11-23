@@ -49,13 +49,13 @@
             <div class="row">
               <div class="col-sm-7" id="sandbox-container">
                 <h4><%= f.label :Fecha_del_Infortunio %></h4>
-        
-                <%= f.date_select :date, {selected: Date.today, start_year: Date.today.year, end_year: Date.today.year, max: Date.today}, {:class => 'form-user form-control'} %>
+                
+                <%= f.date_select :date, {selected: Date.today, start_year: Date.today.year, end_year: Date.today.year, max: Date.today}, {:class => 'col-sm-4 selectpicker form-user'} %>
               </div>
   
               <div class="col-sm-5">
                 <h4><%= f.label :Hora %></h4>
-                <%= f.time_select :hour, {ampm: true},{ :class => "form-control"}%>
+                <%= f.time_select :hour, {ampm: true},{ :class => "col-sm-4 selectpicker form-user"}%>
               </div>
               
             </div>

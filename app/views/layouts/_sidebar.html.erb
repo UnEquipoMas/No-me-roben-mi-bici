@@ -3,9 +3,11 @@
 <div class='col-sm-3 col-md-2 sidebar'>
   <ul class= 'nav nav-sidebar sidenav'>
     <li class='sidebar_overview'>
-      <%= link_to 'Mi cuenta', edit_user_registration_path %>
-      <%= link_to 'Mis bicis', bicicletas_mis_bicicletas_path%>
-      <%= link_to 'Nueva Bici', bicicletas_new_path%>
+      <% if current_page?(edit_user_registration_path)%>
+      <%= active_link_to 'Mi cuenta', edit_user_registration_path, :class=>"current" %>
+      <% end %>
+      <%= active_link_to 'Mis bicis', bicicletas_mis_bicicletas_path , class_active: 'current' %>
+      <%= active_link_to 'Nueva Bici', bicicletas_new_path, class_active: 'current'%>
     </li>
   </ul>
   
