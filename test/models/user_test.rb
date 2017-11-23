@@ -24,8 +24,17 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  doc                    :integer
+#  nick                   :string
 #  phone                  :integer
 #  photo                  :string
+#  provider               :string
+#  uid                    :string
+#  image                  :text
+#  avatar_file_name       :string
+#  avatar_content_type    :string
+#  avatar_file_size       :integer
+#  avatar_updated_at      :datetime
+#  admin                  :boolean          default(FALSE)
 #
 
 require 'test_helper'

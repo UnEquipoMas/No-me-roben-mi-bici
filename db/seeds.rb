@@ -20,30 +20,30 @@ TYPE_BYCICLE = ["Montaña", "Fixid", "Ruta", "Fat bike"]
 
 BRAND = ["GW", "Scott", "Canyon", "Pinarello", "Venzo", "Otra"]
 
-Mode.create([{description: "Mano armada"}])
+Mode.find_or_create_by(description: 'Mano armada')
 
-TypeReport.create([{description: "Hurto"}])
+TypeReport.find_or_create_by(description: "Hurto")
+
+User.create(name: "admin", email: "admin@nmrmb.com", password:'adminws',password_confirmation:'adminws',admin:true)
+
+
 
 6.times do |i|
-   Brand.create([{
-       description: BRAND[i]
-   }]) 
+   Brand.find_or_create_by(description: BRAND[i]) 
 end
 
 4.times do |i|
-   TypeBycicle.create([{
-       description: TYPE_BYCICLE[i]
-   }]) 
+   TypeBycicle.find_or_create_by( description: TYPE_BYCICLE[i]) 
 end
     
 10.times do 
-   Bycicle.create([{
+   Bycicle.create!([{
        serial: Faker::Code.asin,
        state: Faker::Boolean.boolean,
        color: Faker::Color.color_name,
        description: "Grupo shimano",
-       type_bycicle_id: r.rand(4),
-       brand_id: r.rand(6),
+       type_bycicle_id: r.rand(1..4),
+       brand_id: r.rand(1..6),
        user_id: 1
    }]) 
 end
@@ -51,23 +51,22 @@ end
     
 100.times do
     Report.create([{
-        date: Faker::Date.between_except(1.year.ago, 1.year.from_now, Date.today),
+        date: Faker::Date.between(1.year.ago, Date.today),
         hour: Faker::Time.forward(23, :morning),
         description: DESCRIPTIONREPORT[r.rand(5)],
         type_report_id: 1,
         user_id: 1,
         mode_id: 1,
-        bycicle_id: r.rand(10)
+        bycicle_id: r.rand(1..10)
     }])
 end
 
 100. times do |i|
-    Site.create([{
+    Site.create!([{
         name: "Sitio",
         lat: Faker::Number.between(4.60000000000000, 4.70000000000000 ),
         lng: Faker::Number.between(-74.200000000000,-74.000000000000),
         report_id: i + 1
-        
     }])
 
 end

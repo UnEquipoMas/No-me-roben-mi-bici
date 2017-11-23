@@ -12,6 +12,7 @@
 #  type_bycicle_id :integer
 #  brand_id        :integer
 #  user_id         :integer
+#  del             :boolean          default(FALSE)
 #
 
 class Bycicle < ApplicationRecord

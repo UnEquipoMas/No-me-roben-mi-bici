@@ -27,6 +27,14 @@
 #  nick                   :string
 #  phone                  :integer
 #  photo                  :string
+#  provider               :string
+#  uid                    :string
+#  image                  :text
+#  avatar_file_name       :string
+#  avatar_content_type    :string
+#  avatar_file_size       :integer
+#  avatar_updated_at      :datetime
+#  admin                  :boolean          default(FALSE)
 #
 
 class User < ApplicationRecord
@@ -36,12 +44,22 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable , :confirmable, :validatable ,:omniauthable, :omniauth_providers => [:facebook,:github,:twitter,:google_oauth2]
 
+
+
+
 has_many :bycicles
   has_many :reports
   has_many :comments,dependent: :destroy
 
   has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100#" }, :default_url => "/images/:style/missing.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+  
+  after_create :skip_conf!
+
+  def skip_conf!
+    self.confirm if Rails.env.development?
+  end
+  
   
 def self.find_for_google_oauth2(access_token, signed_in_resource=nil)
     data = access_token.info
