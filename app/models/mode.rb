@@ -10,5 +10,5 @@
 
 class Mode < ApplicationRecord
     has_many :reports
-    validates :description, presence: { message: 'Debe ingresar una descripcion para la forma de robo' }
+    validates :description, presence: { message: 'Debe ingresar una descripcion para la forma de robo' }, uniqueness: true
 end
