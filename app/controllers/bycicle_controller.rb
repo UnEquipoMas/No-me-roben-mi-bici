@@ -1,5 +1,5 @@
 class BycicleController < ApplicationController
-
+    skip_before_action :verify_authenticity_token
     def robada
         par = robada_params()
         @bycicles = Bycicle.rob(par[:serial])
@@ -20,12 +20,14 @@ class BycicleController < ApplicationController
     end
     
     def create
-        @bycicle = Bycicle.new(bycicle_params)
-        @bycicle.user_id = current_user.id
-        @bycicle.state=true
-         if @bycicle.save!
-            redirect_to bicicletas_mis_bicicletas_path  
-         end
+        if user_signed_in? 
+            @bycicle = Bycicle.new(bycicle_params)
+            @bycicle.user_id = current_user.id
+            @bycicle.state=true
+             if @bycicle.save!
+                redirect_to bicicletas_mis_bicicletas_path  
+             end
+        end
     end
     
     def edit
