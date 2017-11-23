@@ -2,7 +2,10 @@
 <h1>Reportes</h1>
 
 <div class = "row">
-  <div class="col-sm-5">
+  <div class="col-sm-2">
+      <%= render :partial=> 'reports/sidenav'%>
+  </div>
+  <div class="col-sm-4">
     <%= link_to "Ver mapa de calor", "reports/heatmap" %>
     
     <% @report.each do |rep| %>
@@ -24,7 +27,7 @@
     <%= will_paginate @report %>
   </div>
    
-  <div class="col-sm-7">
+  <div class="col-sm-6">
     <%= render 'reports/maps_index' %>
   </div>
   

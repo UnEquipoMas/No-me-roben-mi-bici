@@ -10,6 +10,5 @@
 
 class Mode < ApplicationRecord
     has_many :reports
-    validates_associated :report
     validates :description, presence: { message: 'Debe ingresar una descripcion para la forma de robo' }
 end
