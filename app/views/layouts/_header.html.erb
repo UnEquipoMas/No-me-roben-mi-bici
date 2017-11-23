@@ -1,13 +1,13 @@
 <header class="headerNmrmb navbar navbar-fixed-top navbar-inverse">
   <div class="container">
     <nav>
-      <ul class="nav navbar-nav navbar-center col-xs-5">
+      <ul class="nav navbar-nav navbar-center col-xs-4">
         <li>
           <%= link_to "NMRMB", root_path, id: "logo" %>
         </li>
         </ul>
         
-          <ul class="nav navbar-nav navbar-center col-xs-7">
+          <ul class="nav navbar-nav navbar-center col-xs-8">
             <li> 
                 <div class="input-group">
                   <!--<select class="form-control" id="exampleFormControlSelect1">-->
@@ -51,6 +51,7 @@
        
           <% if user_signed_in? %>
           <li><%= link_to "Reportar", new_report_path %></li>
+          <li><%= link_to "Bicis robadas", "/bicicletas/bici_robada" %></li>
           <!--<li><#%=link_to "Editar cuenta",edit_user_registration_path%></li>-->
           <!--<li><#%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %></li>-->
           <!--<li style="color: #9d9d9d">Bienvenido <strong><#%= current_user.name %></strong>.</li>-->
