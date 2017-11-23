@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171109115601) do
+ActiveRecord::Schema.define(version: 20171105062121) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "brands", force: :cascade do |t|
     t.string "description", null: false
@@ -25,9 +28,9 @@ ActiveRecord::Schema.define(version: 20171109115601) do
     t.string "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "type_bycicle_id"
-    t.integer "brand_id"
-    t.integer "user_id"
+    t.bigint "type_bycicle_id"
+    t.bigint "brand_id"
+    t.bigint "user_id"
     t.boolean "del", default: false
     t.index ["brand_id"], name: "index_bycicles_on_brand_id"
     t.index ["type_bycicle_id"], name: "index_bycicles_on_type_bycicle_id"
@@ -38,25 +41,10 @@ ActiveRecord::Schema.define(version: 20171109115601) do
     t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "report_id"
-    t.integer "user_id"
+    t.bigint "report_id"
+    t.bigint "user_id"
     t.index ["report_id"], name: "index_comments_on_report_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
-  end
-
-  create_table "locations", force: :cascade do |t|
-    t.string "address"
-    t.float "latitude"
-    t.float "longitude"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "microposts", force: :cascade do |t|
-    t.text "content"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "modes", force: :cascade do |t|
@@ -65,21 +53,9 @@ ActiveRecord::Schema.define(version: 20171109115601) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "photo_reports", force: :cascade do |t|
-    t.string "photo_address"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "report_id"
-    t.string "image_file_name"
-    t.string "image_content_type"
-    t.integer "image_file_size"
-    t.datetime "image_updated_at"
-    t.index ["report_id"], name: "index_photo_reports_on_report_id"
-  end
-
   create_table "photos", force: :cascade do |t|
     t.string "attachable_type"
-    t.integer "attachable_id"
+    t.bigint "attachable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image_file_name"
@@ -96,10 +72,10 @@ ActiveRecord::Schema.define(version: 20171109115601) do
     t.boolean "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "type_report_id"
-    t.integer "user_id"
-    t.integer "mode_id"
-    t.integer "bycicle_id"
+    t.bigint "type_report_id"
+    t.bigint "user_id"
+    t.bigint "mode_id"
+    t.bigint "bycicle_id"
     t.index ["bycicle_id"], name: "index_reports_on_bycicle_id"
     t.index ["mode_id"], name: "index_reports_on_mode_id"
     t.index ["type_report_id"], name: "index_reports_on_type_report_id"
@@ -148,6 +124,10 @@ ActiveRecord::Schema.define(version: 20171109115601) do
     t.datetime "locked_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "doc"
+    t.string "nick"
+    t.integer "phone"
+    t.string "photo"
     t.string "provider"
     t.string "uid"
     t.text "image"
@@ -155,10 +135,6 @@ ActiveRecord::Schema.define(version: 20171109115601) do
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.integer "doc"
-    t.string "nick"
-    t.integer "phone"
-    t.string "photo"
     t.boolean "admin", default: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -166,4 +142,13 @@ ActiveRecord::Schema.define(version: 20171109115601) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "bycicles", "brands"
+  add_foreign_key "bycicles", "type_bycicles"
+  add_foreign_key "bycicles", "users"
+  add_foreign_key "comments", "reports"
+  add_foreign_key "comments", "users"
+  add_foreign_key "reports", "bycicles"
+  add_foreign_key "reports", "modes"
+  add_foreign_key "reports", "type_reports"
+  add_foreign_key "reports", "users"
 end

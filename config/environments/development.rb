@@ -53,7 +53,8 @@ Rails.application.configure do
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
   
   #Configura el mailer para el login
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  #config.action_mailer.default_url_options = { host: 'rails-tutorial-dahoyosr.c9users.io', port: 3000 }
+  config.action_mailer.default_url_options = { host: 'rails-tutorial-dahoyosr.c9users.io'}
   config.action_mailer.delivery_method = :smtp
   config.web_console.whiny_requests = false
 end
