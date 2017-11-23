@@ -70,6 +70,7 @@ gem 'wkhtmltopdf-binary-edge'
 gem "chartkick"
 gem "groupdate"
 gem 'active_link_to'
+gem 'owlcarousel2'
 
 
 group :development, :test do

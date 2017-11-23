@@ -47,15 +47,15 @@
             
             </div>
             <div class="row">
-              <div class="col-sm-7" id="sandbox-container">
+              <div class="col-sm-4" id="sandbox-container">
                 <h4><%= f.label :Fecha_del_Infortunio %></h4>
                 
-                <%= f.date_select :date, {selected: Date.today, start_year: Date.today.year, end_year: Date.today.year, max: Date.today}, {:class => 'col-sm-4 selectpicker form-user'} %>
+                <%= f.date_select :date, {selected: Date.today, start_year: Date.today.year, end_year: Date.today.year, max: Date.today}, {:class => "form-control form-horizontal col-sm-7", :style => "width:100px"} %>
               </div>
   
-              <div class="col-sm-5">
+              <div class="col-sm-3">
                 <h4><%= f.label :Hora %></h4>
-                <%= f.time_select :hour, {ampm: true},{ :class => "col-sm-4 selectpicker form-user"}%>
+                <%= f.time_select :hour, {ampm: true},{ :class => "form-control form-horizontal col-sm-5", :style => "width:100px"}%>
               </div>
               
             </div>
@@ -68,9 +68,13 @@
               </div>
             </div>
             
-            <div class="form-group">
-              <h4> <%= f.label :Descripción %></h4>
-              <%= f.text_area :description, cols: "50", rows: "8", class:"form-user form-control"%>
+            <div class="row">
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <h4> <%= f.label :Descripción %></h4>
+                  <%= f.text_area :description, cols: "50", rows: "8", class:"form-user form-control"%>
+                </div>
+              </div>
             </div>
         
         

@@ -1,42 +1,84 @@
 <body class="logreg">
-  <h1>Reporte</h1>
-
-  <div class = "row">
-    <div class="col-sm-5">
-      <div class="form-bottom1">
-        <div class="form">
-          
+  <div class="form-box">
+    <div class="form-top1">
+      <div class="form-top-left1">
+        <h3>Reporte</h3>
+      </div>
+    </div>
+    <div class = "row">
+      <div>
+        <div class="form-bottom">
             <% @images.each do |picture| %> 
             <%= image_tag picture.image.url(:thumb)%>
             <% end %>
           <p></p>  
+          <div class = "row">
+            <div class="col-sm-4">
+              <h4><%= label_tag :Tipo_de_reporte %></h4>
+              <div class="text">
+                <%= text_field_tag :text, @report.type_report.description, class:"form-user form-control", disabled: true %>
+              </div>
+            </div>
+                
+            <div class="col-sm-4">
+              <h4><%= label_tag :Modalidad_del_Hurto%></h4>
+              <div class="text">
+                <%= text_field_tag :text, @report.mode.description, class:"form-user form-control", disabled: true %>
+              </div>
+            </div>
+            
+            <div class="col-sm-4">
+              <h4><%= label_tag :Bicicleta %></h4>
+               <div class="text"> 
+                <%= text_field_tag :text, @report.bycicle.serial, class:"form-user form-control", disabled: true %>
+              </div>
+          </div>
           
-            <h4><%= label_tag :Tipo_de_reporte %></h4>
-            <%= text_field_tag :text, @report.type_report.description, disabled: true %>
-            <h4><%= label_tag :Fecha %></h4>
-            <%= text_field_tag :text, @report.date, disabled: true %>
-            <h4><%= label_tag :Hora %></h4>
-            <%= text_field_tag :text, @report.hour.to_formatted_s(:time), disabled: true %>
-            <h4><%= label_tag :Descripcion %></h4>
-            <%= text_area_tag :text, @report.description, cols: "50", rows: "6", class:"form-user form-control", disabled: true %>
-            <h4><%= label_tag :Modalidad %></h4>
-            <%= text_field_tag :text, @report.mode.description, disabled: true %>
-            <h4><%= label_tag :Bicicleta %></h4>
-            <%= text_field_tag :text, @report.bycicle.serial, disabled: true %>
+          <div class="row">
+            <div class="col-sm-4" id="sandbox-container">
+              <h4><%= label_tag :Fecha_del_Infortunio %></h4>
+              <%= text_field_tag :text, @report.date, class:"form-user form-control", disabled: true %>
+            </div>
+
+            <div class="col-sm-3">
+              <h4><%= label_tag :Hora %></h4>
+              <%= text_field_tag :text, @report.hour.to_formatted_s(:time), class:"form-user form-control", disabled: true %>
+            </div>
             
-            
+          </div>
+          
+          <div class="row">
+            <div class="form-group">
+              <div class="col-sm-12">
+                <h4><%= label_tag :Lugar %></h4>
+                <%= render 'reports/maps_index' %>
+              </div>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="form-group">
+              <div class="col-sm-12">
+                <h4> <%= label_tag :Descripción %></h4>
+                <%= text_area_tag :text, @report.description, cols: "50", rows: "6", class:"form-user form-control", disabled: true %>
+              </div>
+            </div>
+          </div>
+          
+          <div class='row'>&nbsp;</div>
+          
+          <div class="row">
+            <div class="form-group">
+              <div class="col-sm-12">
+                <div class="form-bottom1">
+                  <%= render 'comments/comment'%>
+                </div>
+              </div>
+            </div>
+          </div>
+          
         </div>
       </div>
     </div>
-     
-    <div class="col-sm-7">
-      <%= render 'reports/maps_index' %>
-  <div class="form-bottom1">
-        <%= render 'comments/comment'%>
-      </div>
-    </div>
-  </div>
-  <div class='row'>
-   
   </div>
 </body>

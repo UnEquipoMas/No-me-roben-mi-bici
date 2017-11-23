@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'error/not_found'
+
+  get 'error/internal_server_error'
+
+  get 'not_found/internal_server_error'
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, :controllers => { registrations: 'registrations',:omniauth_callbacks => "omniauth_callbacks" }
 
@@ -26,6 +32,9 @@ Rails.application.routes.draw do
   post 'bicicletas/del/:id', to: "bycicle#del"
   get 'bicicletas/bici_robada', to: 'bycicle#bici_robada'
   get 'bicicletas/robada', to: 'bycicle#robada'
+  
+  match "/404", :to => "error#not_found", :via => :all
+  match "/500", :to => "error#internal_server_error", :via => :all
   
   # resources :users
   resources :reports do

@@ -57,4 +57,6 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'rails-tutorial-dahoyosr.c9users.io'}
   config.action_mailer.delivery_method = :smtp
   config.web_console.whiny_requests = false
+  
+  config.consider_all_requests_local = false
 end

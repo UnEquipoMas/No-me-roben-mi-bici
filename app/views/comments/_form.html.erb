@@ -1,6 +1,6 @@
 <%= form_for([@report, @report.comments.build]) do |f| %>
 <div>
-  <%= f.text_area :content %>
+  <%= f.text_area :content, cols: "50", rows: "4", class:"form-user form-control" %>
   </div>
   <br>
   <div>

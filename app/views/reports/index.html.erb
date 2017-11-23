@@ -1,34 +1,31 @@
 <body class="logreg">
-<h1>Reportes</h1>
+<h1 style = "color: #fff;">Reportes</h1>
 
-<div class="row">
-  <%= render 'reports/maps_index' %>
-</div>
+
 
 <div class = "row">
   <div class="col-sm-2">
-      <%= render :partial=> 'reports/sidenav'%>
-      <!--<%= render :partial=> 'layouts/sidebar'%>-->
+    <%= render :partial=> 'reports/sidenav'%>
+    <!--<%= render :partial=> 'layouts/sidebar'%>-->
   </div>
-  <div class="col-sm-4">
-    <% @report.each do |rep| %>
-      <div class = "row">
-        <div class = "col-sm-12">
-          <div class="form-control" style = "background-color: #f0f0f0; height: 100%;">
-            <b>Tipo:&nbsp;</b><%= rep.type_report.description %><br>
-            <b>Sitio:&nbsp;</b><%= rep.site.name %><br>
-            <b>Fecha:&nbsp;</b><%= rep.date %>&nbsp;&nbsp;<b>Hora:&nbsp;</b><%= rep.hour.to_formatted_s(:time)%><br>
-            <b>Fecha de publicacion:&nbsp</b><%= rep.created_at.time.to_formatted_s(:db) %>
-            <%= link_to "Ver", "reports/#{rep.id}" %>
-          </div>    
-        </div>
-      </div>
-      <br>
-    <% end %>
   
-                 
+  <div class="col-sm-10">
+    <div class="row">
+      <%= render 'reports/maps_index' %>
+      <br>
+    </div>
+    <div class="owl-carousel owl-theme">
+      <% @report.each do |rep| %>
+        <div class="form-control" style = "background-color: #f0f0f0; height: 100%;">
+          <b>Tipo:&nbsp;</b><%= rep.type_report.description %><br>
+          <b>Sitio:&nbsp;</b><%= rep.site.name %><br>
+          <b>Fecha:&nbsp;</b><%= rep.date %>&nbsp;&nbsp;<b>Hora:&nbsp;</b><%= rep.hour.to_formatted_s(:time)%><br>
+          <b>Fecha de publicacion:&nbsp</b><%= rep.created_at.time.to_formatted_s(:db) %>
+          <%= link_to "Ver", "reports/#{rep.id}" %>
+        </div>
+      <% end %>
+    </div>        
     <%= will_paginate @report %>
   </div>
    
-</div>
 </div>

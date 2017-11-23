@@ -1,8 +1,7 @@
-<h2 style='color:white'>Este reporte tiene <%= pluralize(@comments.count, "comentario") %> </h2>
+<h3 style='color:white'>Este reporte tiene <%= pluralize(@comments.count, "comentario") %> </h3>
 
 <% @comments.each do |comment| %>
-<p style='text-align:left'> <b><%= comment.user.email  %> </b> dijo:  </p>
-<p> <%= comment.content  %>  </p>
+<p style='text-align:left; color:#fff'> <b><%= comment.user.email  %> </b> dijo: <%= comment.content  %> </p>
   <% if current_user == comment.user %>
       <%= link_to 'Eliminar Comentario', [comment.report,comment], method: :delete %>
       <%= link_to 'Editar Comentario', edit_report_comment_path(comment.report,comment) %>

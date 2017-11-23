@@ -233,6 +233,8 @@ GEM
       omniauth-oauth (~> 1.1)
       rack
     orm_adapter (0.5.0)
+    owlcarousel2 (2.2.0.pre.4.pre.g22132e0)
+      sass
     paperclip (5.1.0)
       activemodel (>= 4.2.0)
       activesupport (>= 4.2.0)
@@ -390,6 +392,7 @@ DEPENDENCIES
   omniauth-google-oauth2
   omniauth-instagram
   omniauth-twitter
+  owlcarousel2
   paperclip
   pg
   popper_js
