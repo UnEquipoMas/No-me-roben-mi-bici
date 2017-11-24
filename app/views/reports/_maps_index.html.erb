@@ -30,16 +30,13 @@
           infowindow.open( handler.getMap(), this);
          this.setAnimation(google.maps.Animation.BOUNCE);
           
-          
         });
         
        google.maps.event.addListener(markers[i].getServiceObject(), 'mouseout', function () {
               infowindow.close();
+              this.setAnimation(null);
           });
-        
-        
       }
-    
     
     handler.fitMapToBounds();
     handler.getMap().setZoom(12);
