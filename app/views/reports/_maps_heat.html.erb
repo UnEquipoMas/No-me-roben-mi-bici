@@ -20,27 +20,28 @@
     for (var i = 0; i <json_array.length; i++) {
       for (var j = 0; j <lataux.length; j++){ 
         if((json_array[i].lat > lataux[j] && json_array[i].lat < lataux[j+1])){
-          latux[j]=json_array[i].lat;
+          latux[j]= lataux[j];
           lngux[j]=json_array[i].lng; 
           cont[j]++;
         }
       }
     }
     for (var i = 0; i <12; i++) {
-        if(cont[i]>0 && cont[i]<6){
+        if(cont[i]>0 && cont[i]<=6){
           circles = handler.addCircles(
           [{ lat:  latux[i], lng: lngux[i], radius: 900 }],
           {strokeColor: '#088A08', fillColor: '#00FF00',fillOpacity: 0.1}
           );
           markers = handler.addMarkers([
           {
+            animation: google.maps.Animation.DROP,
             lat: latux[i],
             lng: lngux[i],
             infowindow: "Se han presentado "+cont[i]+" hurtos en esta zona."
           }
         ]);
         }
-        else if(cont[i]>5 && cont[i]<=30){
+        else if(cont[i]>6 && cont[i]<=30){
           circles = handler.addCircles(
           [{ lat:  latux[i], lng: lngux[i], radius: 1300 }],
           {strokeColor: '#FF0000', fillColor: '#FE2E2E',fillOpacity: 0.25}
@@ -51,7 +52,7 @@
             lng: lngux[i],
             infowindow: "Se han presentado "+cont[i]+" hurtos en esta zona."
           }
-        ]);  
+        ]);
         } 
         if(cont[i]>30){
           circles = handler.addCircles(
@@ -59,7 +60,11 @@
           {strokeColor: '#610B0B', fillColor: '#3B0B0B',fillOpacity: 0.3}
           );
           markers = handler.addMarkers(
-            [{ lat:  latux[i], lng: lngux[i]}],);
+            [{ 
+            lat:  latux[i], 
+            lng: lngux[i],
+            infowindow: "Se han presentado "+cont[i]+" hurtos en esta zona."  
+            }]);
         }
     }  
     handler.bounds.extendWith(circles);
