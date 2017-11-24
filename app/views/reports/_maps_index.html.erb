@@ -3,17 +3,44 @@
 </div>
 
 <script type="text/javascript">
-  var markers = [];
+  var handler=[]; 
   var json_array = (<%=raw @hash.to_json%>);
   handler = Gmaps.build('Google');
   handler.buildMap({ 
     provider: {
       center: new google.maps.LatLng(4.635540,-74.082807)
   }, internal: {id:'map'}}, function(){
-    markers = handler.addMarkers(<%=raw @hash.to_json %>);
+   var markers = handler.addMarkers(<%=raw @hash.to_json %>);
     handler.bounds.extendWith(markers);
+   
+    
+    for (var i = 0; i < markers.length; i++) {
+        link = json_array[i].link;
+        
+        google.maps.event.addListener(markers[i].getServiceObject(), 'click', function(){
+          window.open(link,'_self');
+        });
+        
+         var infowindow = new google.maps.InfoWindow({
+          content: json_array[i].infowindow
+        });
+
+
+        google.maps.event.addListener(markers[i].getServiceObject(), 'mouseover', function(){
+          infowindow.open( handler.getMap(), this);
+        });
+        
+       google.maps.event.addListener(markers[i].getServiceObject(), 'mouseout', function () {
+              infowindow.close();
+          });
+        
+        
+      }
+    
+    
     handler.fitMapToBounds();
     handler.getMap().setZoom(12);
+   
     
      });
 </script>
