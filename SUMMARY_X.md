@@ -1,4 +1,4 @@
-﻿Sprint 6
+Sprint 6
 
 UNEQUIPOMÁS
 
@@ -19,9 +19,10 @@ Juan Esteban:
 - Mapa de calor
 
 Christian Vaca:
--Agregar Active Jobs, 
--Arreglar las queries
--CRUD Bicicletas
+- Modificar la interfaz del reporte hecho y de nuevo reporte.
+- Modificar la interfaz de Mis bicicletas, bicicleta nueva y editar bicicleta
+- Modificar la interfaz de bicicletas robadas
+- Creacion del controlador y vistas de error 404 y 500
 
 David Hoyos:
 - Arreglar las rutas 

@@ -34,6 +34,10 @@ class Report < ApplicationRecord
        where(user_id: id) 
     end    
 
+    def self.busqueda_personalizada(params)
+        puts params[:search]
+    end
+
     validates :date, presence: { message: 'Debe ingresar una fecha' }
     validates :hour, presence: { message: 'Debe ingresar una hora' }
     validates :description, presence: { message: 'Debe ingresar una descripcion' }

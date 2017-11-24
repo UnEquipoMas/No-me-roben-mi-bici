@@ -17,6 +17,15 @@
     <div class="owl-carousel owl-theme">
       <% @report.each do |rep| %>
         <div class="form-control" style = "background-color: #f0f0f0; height: 100%;">
+           
+           <%= puts "--------"%> 
+           <% rex=Photo.where(attachable_type: 'Report').where(attachable_id: rep.id).first %>
+           <%if rex %>
+           
+           <b>ID:&nbsp;</b><%=image_tag rex.image.url(:medium) %><br> 
+           <%end%>
+          <!--<#%= p Photo.where(attachable_type: 'Report').where(attachable_id: rep.id).first.image.url(:thumb)%>-->
+          
           <b>Tipo:&nbsp;</b><%= rep.type_report.description %><br>
           <b>Sitio:&nbsp;</b><%= rep.site.name %><br>
           <b>Fecha:&nbsp;</b><%= rep.date %>&nbsp;&nbsp;<b>Hora:&nbsp;</b><%= rep.hour.to_formatted_s(:time)%><br>

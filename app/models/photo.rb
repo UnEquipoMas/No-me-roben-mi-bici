@@ -20,7 +20,7 @@ class Photo < ApplicationRecord
   :path => ":rails_root/public/images/:id/:filename",
   :url  => "/images/:id/:filename" , 
   :styles => {
-    :thumb => "100x100#" },
+    :thumb => "100x100#", :medium => "200x200" },
   :convert_options => {
     :thumb => "-quality 75 -strip" }
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]

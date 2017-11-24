@@ -117,6 +117,8 @@ class ReportsController < ApplicationController
             @report = Report.includes(:site, :mode, :type_report, :bycicle).joins(:site, :mode, :type_report, :bycicle,).where(query).paginate(:page => params[:page], :per_page => 6)
         end
         
+         @images= Photo.where(attachable_type: 'Report').where(attachable_id: @report)
+        
         puts "<<<<<<<<<<<<<>>>>>>>>>>>>>"
         @var = @report.any?
         puts "<<<<<<<<<<<<<>>>>>>>>>>>>>"
@@ -128,50 +130,30 @@ class ReportsController < ApplicationController
           marker.json({title: user.site.name})
         end
     end
+    
+    
     def new
         @report = Report.new
         @report.build_site
         @report.photos.build
-        #@report.image_attachments =[]
-        #@site = Site.new
     end
     
     def create
         @report = Report.new(report_params)
         @site = Site.new
-        #@image= ImageAttachment.create( data: File.new("public/images/thumb/missing.png"))
-        #@image.save
         par = report_params
-        #@image = ImageAttachment.new(report_params[:image_attachment])
-        
-        
         @report.date = Date.new par["date(1i)"].to_i, par["date(2i)"].to_i, par["date(3i)"].to_i
         @report.hour = par["hour(4i)"] + ":" + par["hour(5i)"] + ":00"
         @report.state = true
         @report.user_id = current_user.id
-        #@report.images=par[:image_attachment][:images]
-        p "ASDFASFASDF" 
-        p par
         if @report.save
             if params[:images]
                     #===== The magic is here ;)
                 params[:images].each { |image|
                     @report.photos.create(image: image)
-                  #@report.image_attachments.create
-                   #@imageable.image_attachments.create(:data=>image)
                 }
-            else
-                p "----------------------------------------------------------------------------"
             end  
-            
-        
-           # @image.save
-            
-            # site.name = par[:site][:name]
-            # @site.lat = par[:site][:lat]
-            # @site.lng = par[:site][:long]
-            # @site.report_id = @report.id
-            # @site.save
+
             redirect_to "/reports"
         else
             flash[:alert] = @report.errors.full_messages.to_sentence
