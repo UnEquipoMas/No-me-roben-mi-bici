@@ -63,7 +63,7 @@ class ReportsController < ApplicationController
         @hash = Gmaps4rails.build_markers(@report) do |user, marker|
           marker.lat user.site.lat
           marker.lng user.site.lng
-          marker.infowindow user.site.name & user.description
+          marker.infowindow user.site.name + "\br"+ user.description
           marker.json({title: user.site.name})
           marker.json({ link:  report_path(user)})
         end
