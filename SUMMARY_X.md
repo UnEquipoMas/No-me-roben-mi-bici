@@ -1,4 +1,4 @@
-﻿Sprint 5
+﻿Sprint 6
 
 UNEQUIPOMÁS
 
@@ -8,12 +8,6 @@ División del trabajo:
 Funcionalidades:
 - Gestion de bicicletas (David-Christian)
 - Mapa de zonas (Juan)
-
-Objetivos siguientes Sprint:
-
-Mapa interactivo con más opciones
-Banner en página inicial con los reportes de robo cercanos
-notificaciones al correo
 
 
 Trello:
